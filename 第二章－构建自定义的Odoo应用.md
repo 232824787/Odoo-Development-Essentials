@@ -157,7 +157,8 @@ To be concise, we chose to use very few descriptor keys, but in a real word scen
 - `summary` 显示模块的副标题。  
 - `version` 默认是1.0. 应该遵循语意话的版本命令规则（详情见emver.org）  
 - `license` 标识符号，默认为AGPL-3。  
-- `website`
+- `website` 是有个可以找到关于模块的更多消息的URL。
+- `category` 是模块的功能分类，默认是不分类的。
 
 These other descriptor keys are also available:  
 
@@ -218,7 +219,7 @@ Now let's ask Odoo to acknowledge the new module we just added.
 
 For that, in the **Modules** section of the **Settings** menu, select the **Update Modules List** option. This will update the module list adding any modules added since the last update to the list. Remember that we need the Technical Features enabled for this option to be visible. That is done by selecting the **Technical Features** checkbox for our user.  
 
-因此，在设置菜单的模块区域，请选择更新模块列表选项。该操作将更新模块列表，以添加从上次更新到列表中的已添加模块。记住，我们需要启用技术特性以便让该选项正常显示。对用户来说，你可以通过选择Technical Features复选框来完成这个操作。  
+因此，在设置菜单的模块区域，请选择更新模块列表选项。该操作将更新模块列表，以添加从上次更新到列表中的已添加模块。记住，我们需要启用技术特性以便让该选项正常显示。对用户来说，你可以通过选择Technical Features（技术特性）复选框来完成这个操作。  
 
 ## Installing the new module 安装新模块
 The **Local Modules** option shows us the list of available modules. By default it shows only Apps modules. Since we created an application module we don't need to remove that  lter to see it. Type "todo" in the search and you should see our new module, ready to be installed.  
@@ -263,6 +264,7 @@ $ ./odoo.py -d v8dev -u todo_app
 
 The -u option (or --update in the long form) requires the -d option and accepts a comma-separated list of modules to update. For example, we could use:-u todo_app,mail.  
 
+
 Whenever you need to upgrade work in progress modules throughout the book, the safest way to do so is to go to the terminal window where you have Odoo running, stop the server, and restart it with the command above. Frequently pressing the Up arrow key will be enough, since it should bring you the previous command you used to start the server.  
 
 Unfortunately, updating the module list and uninstalling modules are both actions not available through the command line. These have to be done through the web interface, in the Settings menu.  
@@ -294,6 +296,8 @@ Add the following content to it:
 ```python
    # -*- coding: utf-8 -*-
    from openerp import models, fields
+
+   
    class TodoTask(models.Model):
        _name = 'todo.task'
        name = fields.Char('Description', required=True)
