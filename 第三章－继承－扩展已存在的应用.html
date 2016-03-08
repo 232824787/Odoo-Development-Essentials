@@ -1,0 +1,1373 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  width: 45em;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 30px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headeranchor-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .headeranchor-link:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .headeranchor,
+.markdown-body h2 .headeranchor,
+.markdown-body h3 .headeranchor,
+.markdown-body h4 .headeranchor,
+.markdown-body h5 .headeranchor,
+.markdown-body h6 .headeranchor {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .headeranchor-link,
+.markdown-body h2:hover .headeranchor-link,
+.markdown-body h3:hover .headeranchor-link,
+.markdown-body h4:hover .headeranchor-link,
+.markdown-body h5:hover .headeranchor-link,
+.markdown-body h6:hover .headeranchor-link {
+  height: 1em;
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .headeranchor-link .headeranchor,
+.markdown-body h2:hover .headeranchor-link .headeranchor,
+.markdown-body h3:hover .headeranchor-link .headeranchor,
+.markdown-body h4:hover .headeranchor-link .headeranchor,
+.markdown-body h5:hover .headeranchor-link .headeranchor,
+.markdown-body h6:hover .headeranchor-link .headeranchor {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\f05c';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><title>第三章－继承－扩展已存在的应用</title></head><body><article class="markdown-body"><h1 id="chapter-3-inheritance-extending-existing-applications"><a name="user-content-chapter-3-inheritance-extending-existing-applications" href="#chapter-3-inheritance-extending-existing-applications" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Chapter 3 Inheritance – Extending Existing Applications</h1>
+<hr />
+<p>One of Odoo&rsquo;s most powerful features is the ability to add features without directly modifying the underlying objects.<br />
+Odoo最强大的一个特性便是能够不用直接修改底层对象就可以添加功能。  </p>
+<p>This is achieved through inheritance mechanisms, functioning as modification layers on top of existing objects. These modi cations can happen at all levels: models, views, and business logic. Instead of directly modifying an existing module, we create a new module to add the intended modi cations.  </p>
+<p>Here, you will learn how to write your own extension modules, empowering you to leverage existing core or community applications. As a relevant example, you will learn how to add Odoo&rsquo;s social and messaging features to your own modules.  </p>
+<p>这里，你可以学到如何编写自己的扩展模块，使你能够改变已经存在的内核或者社区应用。举个例子来说，你可以学会如何将Odoo的社交和消息功能添加到自己的模块。  </p>
+<h2 id="adding-sharing-capability-to-the-to-do-app-to-do"><a name="user-content-adding-sharing-capability-to-the-to-do-app-to-do" href="#adding-sharing-capability-to-the-to-do-app-to-do" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Adding sharing capability to the To-Do app 对To-Do添加共享</h2>
+<p>Our To-Do application now allows users to privately manage their own to-do<br />
+tasks. Won&rsquo;t it be great to take the app to another level by adding collaboration and social networking features to it? We will be able to share tasks and discuss them with other people.  </p>
+<p>我们的To－Do应用现状可以让用户独立地管理自己的to－do任务。通过添加协作和社交网络功能就可以将应用提升到另外一个层次岂不是更好？这样，我们能够和其它人分享和讨论任务。  </p>
+<p>We will do this with a new module to extend the previously created To-Do app to add these new features. Here is what we expect to achieve by the end of this chapter:  </p>
+<p>我们将通过创建一个新的模块来扩张值钱创建的To-Do应用已添加这些新功能。</p>
+<p>img:omit  </p>
+<h3 id="road-map-for-the-user-sharing-features"><a name="user-content-road-map-for-the-user-sharing-features" href="#road-map-for-the-user-sharing-features" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Road map for the user sharing features 用户分享的路线图</h3>
+<p>Here is our work plan for the feature extensions to be implemented:   </p>
+<p>这里是我们将要实现的功能扩展的工作计划：  </p>
+<ul>
+<li>Add fields to the Task model, such as the user who owns the task</li>
+<li>Modify the business logic to operate only on the current user&rsquo;s tasks, instead<br />
+of all tasks the user is able to see</li>
+<li>Add the necessary fields to the views</li>
+<li>
+<p>Add social networking features: the message wall and the followers</p>
+</li>
+<li>
+<p>添加字段到Task模型，比如任务的创建人。  </p>
+</li>
+<li>仅对当前用户修改业务逻辑已操作，而不是修改用户可以看到的所有用户。  </li>
+<li>对视图添加必须要的视图。  </li>
+<li>添加社交网络功能：消息墙和粉丝。  </li>
+</ul>
+<p>We will start creating the basic skeleton for the module alongside the todo_app module. Following the installation example in Chapter 1, Getting Started with Odoo Development we are hosting our modules at <code>~/odoo-dev/custom-addons/</code>:  </p>
+<pre><code class="shell">$ mkdir ~/odoo-dev/custom-addons/todo_user
+$ touch ~/odoo-dev/custom-addons/todo_user/__init__.py
+</code></pre>
+
+<p>Now create the <code>__openerp__.py</code>, containing this code:  </p>
+<p>现在，创建一个包含以下代码的文件</p>
+<pre><code class="json">   {  'name': 'Multiuser To-Do',
+      'description': 'Extend the To-Do app to multiuser.',
+      'author': 'Daniel Reis',
+      'depends': ['todo_app'], }
+</code></pre>
+
+<p>We haven&rsquo;t done that, but including the summary and category keys can be important when publishing modules to the Odoo online app store.  </p>
+<p>Next, we can install it. It should be enough to update the Modules List from the Settings menu,  nd the new module in the Local Modules list and click on its Install button. For more detailed instructions on discovering and installing a module you can refer back to Chapter 1, Getting Started with Odoo Development.  </p>
+<p>Now, let&rsquo;s start adding the new features to it.  </p>
+<h2 id="extending-the-to-do-task-model"><a name="user-content-extending-the-to-do-task-model" href="#extending-the-to-do-task-model" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Extending the to-do task model</h2>
+<p>New models are de ned through Python classes. Extending them is also done through Python classes, but using an Odoo specific mechanism.  </p>
+<p>To extend an existing model we use a Python class with a _inherit attribute. This identi es the model to be extended. The new class inherits all the features of the parent Odoo model, and we only need to declare the modi cations that we wish to introduce.  </p>
+<p>In fact, Odoo models exist outside our particular module, in a central registry. This registry can also be referred to as the pool, and can be accessed from model methods using <code>self.env[&lt;model name&gt;]</code>. For example, to reference the <code>res.partner</code> model we would write <code>self.env['res.partner']</code>.  </p>
+<p>To modify an Odoo model we get a reference to its registry class and then perform in place changes on it. This means that these modi cations will also be available everywhere else where the model is used.  </p>
+<p>In the module loading sequence, during a server start, modi cations will only be visible to the modules loaded afterward. So, the loading sequence is important and we should make sure that the module dependencies are correctly set.  </p>
+<h3 id="adding-fields-to-a-model"><a name="user-content-adding-fields-to-a-model" href="#adding-fields-to-a-model" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Adding fields to a model</h3>
+<p>We will extend the todo.task model to add a couple of  elds to it: the user responsible for the task, and a deadline date.  </p>
+<p>Create a new <code>todo_task.py</code> file declaring a class extending the original model:  </p>
+<pre><code class="python"># -*- coding: utf-8 -*-
+from openerp import models, fields, api
+
+
+class TodoTask(models.Model):
+    _inherit = 'todo.task'
+    user_id = fields.Many2one('res.users', 'Responsible')
+    date_deadline = fields.Date('Deadline')
+</code></pre>
+
+<p>The class name is local to this Python file, and in general is irrelevant for other modules. The <code>_inherit</code> class attribute is the key here: it tells Odoo that this class is inheriting from the todo.task model. Notice the <code>_name</code> attribute absent. It is not needed because it is already inherited from the parent model.  </p>
+<p>The next two lines are regular field declarations. The <code>user_id</code> represents a user from the Users model, <code>res.users</code>. It&rsquo;s a Many2one  eld, the equivalent to a foreign key<br />
+in database jargon. The date_deadline is a simple date field. In <strong>Chapter 5, Models Structuring the Application Data</strong> we will be explaining in more detail the types of  elds available in Odoo.  </p>
+<p>We still need to add to the <code>__init__.py</code> file the import statement to include it in the module:  </p>
+<pre><code class="python">from . import todo_task
+</code></pre>
+
+<p>To have the new  elds added to the model&rsquo;s supporting database table we need to perform a module upgrade. If everything goes as expected, you should see the new  elds when inspecting the <code>todo.task</code> model, in the <strong>Technical</strong> menu, <strong>Database Structure</strong> | <strong>Models</strong> option.  </p>
+<h3 id="modifying-existing-fields"><a name="user-content-modifying-existing-fields" href="#modifying-existing-fields" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Modifying existing fields</h3>
+<p>As you can see, adding new fields to an existing model is quite straightforward. Since Odoo 8, modifying attributes on already existing  elds is also possible. It&rsquo;s done by adding a  eld with the same name, and setting values only for the attributes to be changed.  </p>
+<p>For example, to add a help tooltip to the name field, we could add this line to the <code>todo_task.py</code> described above:  </p>
+<pre><code class="python">name = fields.Char(help=&quot;What needs to be done?&quot;)
+</code></pre>
+
+<p>If we upgrade the module, go to a to-do task form, and pause the mouse pointer over the <strong>Description</strong> field, the above tooltip text will be displayed.  </p>
+<h3 id="modifying-models-methods"><a name="user-content-modifying-models-methods" href="#modifying-models-methods" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Modifying model&rsquo;s methods</h3>
+<p>Inheritance also works at the business logic level. Adding new methods is simple: just declare their functions inside the inheriting class.  </p>
+<p>To extend existing logic, the corresponding method can be overridden by declaring a method with the exact same name, and the new method will replace the previous one. But it can extend the code of the inherited class, by using Python&rsquo;s <code>super()</code> keyword to call the parent method.  </p>
+<p>It&rsquo;s best to avoid changing the method&rsquo;s function signature (that is, keep the same arguments) to be sure that the existing calls on it will keep working properly. In case you need to add additional parameters, make them optional (with a default value) keyword arguments.  </p>
+<p>The original <code>Clear All Done</code> action is not appropriate for our task-sharing module anymore, since it clears all tasks regardless of their user. We need to modify it so that it clears only the current user tasks.  </p>
+<p>For this, we will override the original method with a new version that  rst  nds the list of completed tasks for the current user, and then inactivates them:  </p>
+<pre><code class="python">    @api.multi
+    def do_clear_done(self):
+        domain = [('is_done', '=', True),  '|', ('user_id', '=', self.env.uid), ('user_id', '=', False)]
+        done_recs = self.search(domain)
+        done_recs.write({'active': False})
+        return True
+</code></pre>
+
+<p>We  rst list the <code>done</code> records to act upon using the search method with a filter expression. The  lter expression follows an Odoo speci c syntax referred to as a domain.  </p>
+<p>The filter domain used is de ned the  rst instruction: it is a list of conditions, where each condition is a tuple.<br />
+These conditions are implicitly joined with an AND operator (&lsquo;&amp;&rsquo; in domain syntax). To add an OR operation a pipe (&lsquo;|&rsquo;) is used in place of a tuple, and it will affect the next two conditions. We will go into more details about domains in <code>Chapter 6, Views - Designing the User Interface</code>.  </p>
+<p>The domain used here  lters all done tasks (<code>'is_done', '=', True</code>) that either have the current user as responsible (<code>'user_id', '=', self.env.uid</code>) or don&rsquo;t have a current user set (<code>'user_id', '=', False</code>).  </p>
+<p>What we just did was to completely overwrite the parent method, replacing it with a new implementation.  </p>
+<p>But this is not what we usually want to do. Instead we should extend the existing logic to add some additional operations to it. Otherwise we could break already existing features. Existing logic is inserted in an overriding method using Python&rsquo;s super() command, to call the parent&rsquo;s version of the method.  </p>
+<p>Let&rsquo;s see an example of this: we could write a better version of do_toggle_done() that only performs its action on the Tasks assigned to our user:  </p>
+<pre><code class="python">       @api.one
+       def do_toggle_done(self):
+           if self.user_id != self.env.user:
+               raise Exception('Only the responsible can do this!')
+           else:
+               return super(TodoTask, self).do_toggle_done()
+</code></pre>
+
+<p>These are the basic techniques for overriding and extending business logic de ned in model classes. Next we will see how to extend the user interface views.  </p>
+<h2 id="extending-views"><a name="user-content-extending-views" href="#extending-views" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Extending views</h2>
+<p>Forms, lists, and search views are de ned using the arch XML structures. To extend views we need a way to modify this XML. This means locating XML elements and then introducing modi cations on those points.  </p>
+<p>Inherited views allow just that. An inherited view looks like this:  </p>
+<pre><code class="xml">   &lt;record id=&quot;view_form_todo_task_inherited&quot; model=&quot;ir.ui.view&quot;&gt;
+     &lt;field name=&quot;name&quot;&gt;Todo Task form – User extension&lt;/field&gt;
+     &lt;field name=&quot;model&quot;&gt;todo.task&lt;/field&gt;
+     &lt;field name=&quot;inherit_id&quot; ref=&quot;todo_app.view_form_todo_task&quot;/&gt;
+     &lt;field name=&quot;arch&quot; type=&quot;xml&quot;&gt;
+         &lt;!-- ...match and extend elements here! ... --&gt;
+     &lt;/field
+   &lt;/record&gt;
+</code></pre>
+
+<p>The <code>inherit_id</code> field identifies the view to be extended, by referring to its external identi er using the special ref attribute. External identi ers will be discussed in more detail in <code>Chapter 4, Data Serialization and Module Data</code>.<br />
+The natural way to locate elements in XML is to use XPath expressions. For example, taking the form view de ned in the previous chapter, the XPath expression to<br />
+locate the <code>&lt;field name="is_done"&gt;</code> element is: <code>//field[@name]='is_done'</code>. This expression finds a <code>field</code> element with a name attribute equal to <code>is_done</code>. You can find more information on XPath at: <code>https://docs.python.org/2/library/xml. etree.elementtree.html#xpath-support</code>.  </p>
+<p>Having name attributes on elements is important because it makes it a lot easier to select them for extension points. Once the extension point is located, it can be modi ed or have XML elements added near it.  </p>
+<p>As a practical example, to add the date_deadline field before the <code>is_done</code> field, we would write in the <code>arch</code>:  </p>
+<pre><code class="xml">   &lt;xpath expr=&quot;//field[@name]='is_done'&quot; position=&quot;before&quot;&gt;
+     &lt;field name=&quot;date_deadline&quot; /&gt;
+&lt;/xpath&gt;
+</code></pre>
+
+<p>Fortunately Odoo provides shortcut notation for this, so most of the time we can avoid the XPath syntax entirely. Instead of the <code>xpath</code> element above we can use the element type we want to locate and its distinctive attributes. The above could also be written as:  </p>
+<pre><code class="xml">   &lt;field name=&quot;is_done&quot; position=&quot;before&quot;&gt;
+     &lt;field name=&quot;date_deadline&quot; /&gt;
+&lt;/field&gt;
+</code></pre>
+
+<p>Adding new  elds next to existing  elds is done often, so the <code>&lt;field&gt;</code> tag is frequently used as the locator. But any other tag can be used: <code>&lt;sheet&gt;</code>, <code>&lt;group&gt;</code>, <code>&lt;div&gt;</code>, and so on. The name attribute is usually the best choice for matching elements, but sometimes, we may need to use <code>string</code> (the displayed label text) or the CSS <code>class</code> element.  </p>
+<p>The <code>position</code> attribute used with the locator element is optional, and can have the following values:  </p>
+<ul>
+<li>after: This is added to the parent element, after the matched node.</li>
+<li>before: This is added to the parent element, before the matched node.</li>
+<li>inside (the default value): This is appended to the content of the matched node.</li>
+<li>replace: This replaces the matched node. If used with empty content, it deletes an element.</li>
+<li>attributes: This modifies the XML attributes of the matched element (there are more details described following this list).</li>
+</ul>
+<p>The <code>attribute</code> position allows us to modify the matched element&rsquo;s attributes. This is done using <code>&lt;attribute name="attr-name"&gt;</code> elements with the new attribute values.  </p>
+<p>In the Task form, we have the <strong>Active</strong> field, but having it visible is not that useful. Maybe, we can hide it from the user. This can be done setting its <code>invisible</code> attribute:  </p>
+<pre><code class="xml">   &lt;field name=&quot;active&quot; position=&quot;attributes&quot;&gt;
+     &lt;attribute name=&quot;invisible&quot;&gt;1&lt;attribute/&gt;
+&lt;/field&gt;
+</code></pre>
+
+<p>Setting the invisible attribute to hide an element is a good alternative to using the replace locator to remove nodes. Removing should be avoided, since it can break extension models that may depend on the deleted node.  </p>
+<p>Finally, we can put all of this together, add the new  elds, and get the following complete inheritance view to extend the to-do tasks form:  </p>
+<pre><code class="xml">   &lt;record id=&quot;view_form_todo_task_inherited&quot; model=&quot;ir.ui.view&quot;&gt;
+     &lt;field name=&quot;name&quot;&gt;Todo Task form – User extension&lt;/field&gt;
+     &lt;field name=&quot;model&quot;&gt;todo.task&lt;/field&gt;
+     &lt;field name=&quot;inherit_id&quot; ref=&quot;todo_app.view_form_todo_task&quot;/&gt;
+     &lt;field name=&quot;arch&quot; type=&quot;xml&quot;&gt;
+       &lt;field name=&quot;name&quot; position=&quot;after&quot;&gt;
+         &lt;field name=&quot;user_id&quot; /&gt;
+       &lt;/field&gt;
+       &lt;field name=&quot;is_done&quot; position=&quot;before&quot;&gt;
+         &lt;field name=&quot;date_deadline&quot; /&gt;
+       &lt;/field&gt;
+       &lt;field name=&quot;name&quot; position=&quot;attributes&quot;&gt;
+         &lt;attribute name=&quot;string&quot;&gt;I have to...&lt;attribute/&gt;
+       &lt;/field&gt;
+     &lt;/field
+&lt;/record&gt;
+</code></pre>
+
+<p>This should be added to a <code>todo_view.xml</code> file in our module, inside the <code>&lt;openerp&gt;</code><br />
+and <code>&lt;data&gt;</code> tags, as shown in the previous chapter.  </p>
+<blockquote>
+<h3 id="note"><a name="user-content-note" href="#note" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Note</h3>
+<p>Inherited views can also be inherited, but since this creates<br />
+more intricate dependencies, it should be avoided.  </p>
+</blockquote>
+<p>Also, we should not forget to add the data attribute to the <code>__openerp__.py</code> descriptor file:  </p>
+<pre><code class="json">'data': ['todo_view.xml'],
+</code></pre>
+
+<h3 id="extending-tree-and-search-views"><a name="user-content-extending-tree-and-search-views" href="#extending-tree-and-search-views" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Extending tree and search views</h3>
+<p>Tree and search view extensions are also de ned using the arch XML structure, and they can be extended in the same way as form views. We will follow example of a extending the list and search views.  </p>
+<p>For the list view, we want to add the user field to it:  </p>
+<pre><code class="xml">   &lt;record id=&quot;view_tree_todo_task_inherited&quot; model=&quot;ir.ui.view&quot;&gt;
+     &lt;field name=&quot;name&quot;&gt;Todo Task tree – User extension&lt;/field&gt;
+     &lt;field name=&quot;model&quot;&gt;todo.task&lt;/field&gt;
+     &lt;field name=&quot;inherit_id&quot; ref=&quot;todo_app.view_tree_todo_task&quot;/&gt;
+     &lt;field name=&quot;arch&quot; type=&quot;xml&quot;&gt;
+       &lt;field name=&quot;name&quot; position=&quot;after&quot;&gt;
+         &lt;field name=&quot;user_id&quot; /&gt;
+       &lt;/field&gt;
+     &lt;/field
+&lt;/record&gt;
+</code></pre>
+
+<p>For the search view, we will add search by user, and prede ned  lters for the user&rsquo;s own tasks and tasks not assigned to anyone:  </p>
+<pre><code class="xml">   &lt;record id=&quot;view_filter_todo_task_inherited&quot; model=&quot;ir.ui.view&quot;&gt;
+     &lt;field name=&quot;name&quot;&gt;Todo Task tree – User extension&lt;/field&gt;
+     &lt;field name=&quot;model&quot;&gt;todo.task&lt;/field&gt;
+     &lt;field name=&quot;inherit_id&quot; ref=&quot;todo_app.view_filter_todo_task&quot;/&gt;
+     &lt;field name=&quot;arch&quot; type=&quot;xml&quot;&gt;
+       &lt;field name=&quot;name&quot; position=&quot;after&quot;&gt;
+         &lt;field name=&quot;user_id&quot; /&gt;
+         &lt;filter name=&quot;filter_my_tasks&quot; string=&quot;My Tasks&quot;
+                 domain=&quot;[('user_id','in',[uid,False])]&quot; /&gt;
+         &lt;filter name=&quot;filter_not_assigned&quot; string=&quot;Not Assigned&quot;
+                domain=&quot;[('user_id','=',False)]&quot; /&gt;
+    &lt;/field&gt;
+  &lt;/field
+&lt;/record&gt;
+</code></pre>
+
+<p>Don&rsquo;t worry too much about the views-specific syntax. We&rsquo;ll cover that in more detail in <code>Chapter 6, Views - Designing the User Interface</code>.  </p>
+<h2 id="more-on-using-inheritance-to-extend-models"><a name="user-content-more-on-using-inheritance-to-extend-models" href="#more-on-using-inheritance-to-extend-models" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>More on using inheritance to extend models</h2>
+<p>We have seen the basic in place extension of models, which is also the most frequent use of inheritance. But inheritance using the <code>_inherit</code> attribute has more powerful capabilities, such as <strong>mixin</strong> classes.  </p>
+<p>We also have available the delegation inheritance method, using the <code>_inherits</code> attribute. It allows for a model to contain other models in a transparent way for the observer, while behind the scenes each model is handling its own data.  </p>
+<p>Let&rsquo;s explore these possibilities in more detail.  </p>
+<h3 id="copying-features-using-prototype-inheritance"><a name="user-content-copying-features-using-prototype-inheritance" href="#copying-features-using-prototype-inheritance" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Copying features using prototype inheritance</h3>
+<p>The method we used before to extend a model used just the <code>_inherit</code> attribute. We de ned a class inheriting the <code>todo.task</code> model, and added some features to it. The class _name was not explicitly set; implicitly it was <code>todo.task</code> also.  </p>
+<p>But using the <code>_name</code> attribute allows us to create mixin classes, by setting it to the model we want to extend. Here is an example:  </p>
+<pre><code class="python">   from openerp import models
+
+
+   class TodoTask(models.Model):
+     _name = 'todo.task'
+     _inherit = 'mail.thread'
+</code></pre>
+
+<p>This extends the <code>todo.task</code> model by copying to it the features of the <code>mail.thread</code> model. The <code>mail.thread</code> model implements the Odoo messages and followers features, and is reusable, so that it&rsquo;s easy to add those features to any model.  </p>
+<p>Copying means that the inherited methods and  elds will also be available in the inheriting model. For fields this means that they will be also created and stored in the target model&rsquo;s database tables. The data records of the original (inherited) and the new (inheriting) models are kept unrelated. Only the de nitions are shared.  </p>
+<p>These mixins are mostly used with abstract models, such as the <code>mail.thread</code> used<br />
+in the example. Abstract models are just like regular models except that no database representation is created for them. They act like templates, describing fields and logic to be reused in regular models. The  elds they de ne will only be created on those regular models inheriting from them. In a moment we will discuss in detail how<br />
+to use this to add <code>mail.thread</code> and its social networking features to our module. <br />
+In practice when using mixins we rarely inherit from regular models, because this causes duplication of the same data structures.  </p>
+<p>Odoo provides the delegation inheritance mechanism, which avoids data structure duplication, so it is usually preferred when inheriting from regular models. Let&rsquo;s look at it in more detail.  </p>
+<h3 id="embedding-models-using-delegation-inheritance"><a name="user-content-embedding-models-using-delegation-inheritance" href="#embedding-models-using-delegation-inheritance" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Embedding models using delegation inheritance</h3>
+<p>Delegation inheritance is the less frequently used model extension method, but it can provide very convenient solutions. It is used through the <code>_inherits</code> attribute (note the additional -s) with a dictionary mapping inherited models with  elds linking to them.  </p>
+<p>A good example of this is the standard Users model, res.users, that has a Partner model embedded in it:  </p>
+<pre><code class="python">   from openerp import models, fields
+   class User(models.Model):
+     _name = 'res.users'
+     _inherits = {'res.partner': 'partner_id'}
+     partner_id = fields.Many2one('res.partner')
+</code></pre>
+
+<p>With delegation inheritance the model <code>res.users</code> embeds the inherited model <code>res.partner</code>, so that when a new <code>User</code> is created, a partner is also created and a reference to it is kept in the <code>partner_id</code> field of the <code>User</code>. It is similar to the polymorphism concept in object oriented programming.  </p>
+<p>All fields of the inherited model, Partner, are available as if they were User  elds, through the delegation mechanism. For example, the partner name and address  elds are exposed as User  elds, but in fact they are being stored in the linked Partner model, and no data structure duplication occurs.  </p>
+<p>The advantage of this, compared to prototype inheritance, is that there is no need<br />
+to repeat data structures in many tables, such as addresses. Any new model that needs to include an address can delegate that to an embedded Partner model. And if modi cations are introduced in the partner address  elds or validations, these are immediately available to all the models embedding it!  </p>
+<blockquote>
+<h3 id="note_1"><a name="user-content-note_1" href="#note_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Note</h3>
+<p>Note that with delegation inheritance,  elds are inherited, but methods are not.  </p>
+</blockquote>
+<h3 id="using-inheritance-to-add-social-network-features"><a name="user-content-using-inheritance-to-add-social-network-features" href="#using-inheritance-to-add-social-network-features" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Using inheritance to add social network features</h3>
+<p>The social network module (technical name mail) provides the message board found at the bottom of many forms, also called Open Chatter, the followers are featured along with the logic regarding messages and noti cations. This is something we will often want to add to our models, so let&rsquo;s learn how to do it.  </p>
+<p>The social network messaging features are provided by the mail.thread model of the mail module. To add it to a custom model we need to:  </p>
+<ul>
+<li>Have the module depend on mail.</li>
+<li>Have the class inherit from mail.thread.</li>
+<li>Have the Followers and Thread widgets added to the form view.</li>
+<li>Optionally, set up record rules for followers.</li>
+</ul>
+<p>Let&rsquo;s follow this checklist:  </p>
+<p>Regarding <code>#1</code>, since our extension module depends on todo_app, which in turn<br />
+depends on mail, the dependency on mail is already implicit, so no action is needed.  </p>
+<p>Regarding <code>#2</code>, the inheritance on mail.thread is done using the <code>_inherit</code> attribute we used before. But our to-do task extension class is already using the _inherit attribute. Fortunately it can also accept a list of models to inherit from, so we can use that to make it also include the inheritance on mail.thread:  </p>
+<pre><code class="python">       _name = 'todo.task'
+       _inherit = ['todo.task', 'mail.thread']
+</code></pre>
+
+<p>The <code>mail.thread</code> model is an abstract model. Abstract models are just like regular models except that they don&rsquo;t have a database representation; no actual tables are created for them. Abstract models are not meant to be used directly. Instead they<br />
+are expected to be used in mixin classes, as we just did. We can think of them as templates with ready-to-use features. To create an abstract class we just need it to use models.AbstractModel instead of <code>models.Model</code>.  </p>
+<p>For <code>#3</code>, we want to add the social network widgets at the bottom of the form. We can reuse the inherited view we already created, <code>view_form_todo_task_inherited</code>, and add this into its arch data:  </p>
+<pre><code class="xml">&lt;sheet position=&quot;after&quot;&gt;
+     &lt;div class=&quot;oe_chatter&quot;&gt;
+       &lt;field name=&quot;message_follower_ids&quot; widget=&quot;mail_followers&quot; /&gt;
+       &lt;field name=&quot;message_ids&quot; widget=&quot;mail_thread&quot; /&gt;
+     &lt;/div&gt;
+ &lt;/sheet&gt;
+</code></pre>
+
+<p>The two fields we add here haven&rsquo;t been explicitly declared by us, but they are provided by the <code>mail.thread</code> model.  </p>
+<p>The  nal step is to set up record rules for followers. This is only needed if our model has record rules implemented that limit other users&rsquo; access to its records. In this case, we need to make sure that the followers for each record have at least read access to it.  </p>
+<p>We do have record rules on the to-do task model so we need to address this, and that&rsquo;s what we will do in the next section.  </p>
+<h2 id="modifying-data"><a name="user-content-modifying-data" href="#modifying-data" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Modifying data</h2>
+<p>Unlike views, regular data records don&rsquo;t have an XML arch structure and can&rsquo;t be extended using XPath expressions. But they can still be modi ed to replace values in their fields.  </p>
+<p>The <code>&lt;record id="x" model="y"&gt;</code> element is actually performing an insert or update operation on the model: if x does not exist, it is created; otherwise, it is updated/written over.  </p>
+<p>Since records in other modules can be accessed using a <code>&lt;model&gt;.&lt;identifier&gt;</code> identi er, it&rsquo;s perfectly legal for our module to overwrite something that was written before by another module.  </p>
+<blockquote>
+<h3 id="note_2"><a name="user-content-note_2" href="#note_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Note</h3>
+<p>Note that the dot is reserved to separate the module name from the object identi er, so they shouldn&rsquo;t be used in identi ers. Instead use the underscore.  </p>
+</blockquote>
+<p>As an example, let&rsquo;s change the menu option created by the todo_app module to into <strong>My To Do</strong>. For that we could add the following to the todo_user/todo_view. xml file:  </p>
+<pre><code class="xml">&lt;!-- Modify menu item --&gt;
+       &lt;record id=&quot;todo_app.menu_todo_task&quot; model=&quot;ir.ui.menu&quot;&gt;
+           &lt;field name=&quot;name&quot;&gt;My To-Do&lt;/field&gt;
+       &lt;/record&gt;
+       &lt;!-- Action to open To-Do Task list --&gt;
+       &lt;record model=&quot;ir.actions.act_window&quot;
+           id=&quot;todo_app.action_todo_task&quot;&gt;
+           &lt;field name=&quot;context&quot;&gt;
+               {'search_default_filter_my_tasks': True}
+           &lt;/field&gt;
+     &lt;/record&gt;
+</code></pre>
+
+<h3 id="extending-the-record-rules"><a name="user-content-extending-the-record-rules" href="#extending-the-record-rules" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Extending the record rules</h3>
+<p>The To-Do application included a record rule to ensure that each task would only be visible to the user that created it. But now, with the addition of the social features, we need the task followers to also have access to them. The social network module does not handle this by itself.  </p>
+<p>Also, now tasks can have users assigned to them, so it makes more sense to have the access rules to work on the responsible user instead of the user who created the task.  </p>
+<p>The plan would be the same as we did for the menu item: overwrite the <code>todo_app.todo_task_user_rule</code> to modify the domain_force  eld to a new value.  </p>
+<p>Unfortunately this won&rsquo;t work this time. Remember the <code>&lt;data no_update="1"&gt;</code> we used in the security rules XML  le: it prevents later write operations on it.  </p>
+<p>Since updates on that record are being prevented, we need a workaround. That will be to delete that record and add a replacement for it in our module.  </p>
+<p>To keep things organized, we will create a security/todo_access_rules.xml file and add the following content to it:  </p>
+<pre><code class="xml">   &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+   &lt;openerp&gt;
+     &lt;data noupdate=&quot;1&quot;&gt;
+       &lt;delete model=&quot;ir.rule&quot; search=&quot;[('id', '=',
+        ref('todo_app.todo_task_user_rule'))]&quot; /&gt;
+       &lt;record id=&quot;todo_task_per_user_rule&quot; model=&quot;ir.rule&quot;&gt;
+           &lt;field name=&quot;name&quot;&gt;ToDo Tasks only for owner&lt;/field&gt;
+           &lt;field name=&quot;model_id&quot; ref=&quot;model_todo_task&quot;/&gt;
+           &lt;field name=&quot;groups&quot;
+             eval=&quot;[(4, ref('base.group_user'))]&quot;/&gt;
+           &lt;field name=&quot;domain_force&quot;&gt;
+             ['|',('user_id','in', [user.id,False]),
+               ('message_follower_ids','in',[user.partner_id.id])]
+         &lt;/field&gt;
+    &lt;/record&gt;
+  &lt;/data&gt;
+&lt;/openerp&gt;
+</code></pre>
+
+<p>This finds and deletes the <code>todo_task_user_rule</code> record rule from the todo_app module, and then creates a new <code>todo_task_per_user_rule</code> record rule. The domain filter we will now use makes a task visible to the responsible user user_id, to everyone if the responsible user is not set (equals False), and to all followers. <br />
+The rule will run in a context where user is available and represents the current session user. The followers are partners, not User objects, so instead of <code>user.id</code>,<br />
+we need to use <code>user.partner_id.id</code>.  </p>
+<blockquote>
+<h3 id="tips"><a name="user-content-tips" href="#tips" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Tips</h3>
+<p>Working on data  les with <code>&lt;data noupdate="1"&gt;</code> is tricky because any later edit won&rsquo;t be updated on Odoo. To avoid that, temporarily use <code>&lt;data noupdate="0"&gt;</code> during development, and change it back only when you&rsquo;re done with the module.  </p>
+</blockquote>
+<p>As usual, we must not forget to add the new  le to the <code>__openerp__.py</code> descriptor  le in the data attribute:  </p>
+<pre><code class="python">'data': ['todo_view.xml', 'security/todo_access_rules.xml'],
+</code></pre>
+
+<p>Notice that on module upgrade, the <code>&lt;delete&gt;</code> element will produce an ugly warning message, because the record to delete does not exist anymore. It is not an error and the upgrade will be successful, so we don&rsquo;t need to worry about it.  </p>
+<h2 id="summary"><a name="user-content-summary" href="#summary" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Summary</h2>
+<p>You should now be able to create new modules to extend existing modules. We saw how to extend the To-Do module created in the previous chapter.  </p>
+<p>New features were added onto the several layers that make up an application.<br />
+We extended the Odoo model to add new  elds, and extended the methods with its business logic. Next, we modi ed the views to make the new  elds available on them. Finally, you learned how to extend a model by inheriting from other models, and we used that to add the social network features to our To-Do app.  </p>
+<p>With these three chapters, we had an overview of the common activities involved in Odoo development, from Odoo installation and setup to module creation and extension. The next chapters will focus on speci c areas, most of which we visited brie y in these overviews. In the following chapter, we will address data serialization and the usage of XML and CSV  les in more detail.  </p></article></body></html>
