@@ -49,9 +49,7 @@ With this approach, you will be able to gradually learn about the basic building
 使用该方法，你能够逐步的学习可以让程序运行起来的代码段，也会体验到从零开始构建Odoo模块的交互过程。  
  
 ## Understanding applications and modules 理解应用和模块
-It's common to hear about Odoo modules and applications. But what exactly is the difference between them? Modules are building blocks of Odoo applications. A module can add or modify Odoo features. It is supported by a directory containing
-a manifest or descriptor  le (named `__openerp__.py`) and the remaining  les that implement its features. Sometimes, modules can also be referred to as "add-ons." Applications are not different from regular modules, but functionally, they provide
-a central feature, around which other modules add features or options. They provide the core elements for a functional area, such as accounting or HR, around which other modules add features. Because of this, they are highlighted in the Odoo Apps menu.  
+It's common to hear about Odoo modules and applications. But what exactly is the difference between them? Modules are building blocks of Odoo applications. A module can add or modify Odoo features. It is supported by a directory containing a manifest or descriptor file (named `__openerp__.py`) and the remaining files that implement its features. Sometimes, modules can also be referred to as "add-ons." Applications are not different from regular modules, but functionally, they provide a central feature, around which other modules add features or options. They provide the core elements for a functional area, such as accounting or HR, around which other modules add features. Because of this, they are highlighted in the Odoo Apps menu.  
 
 Odoo模块和应用经常被提及，但是它们之间到底有什么区别呢？模块用来构建Odoo应用的区块。模块可以添加或者修改Odoo的功能。通过在目录中包含一个明显的描述符文件（称作`__openerp__.py`）,以及剩余的文件实现模块功能。有时候，模块可以称作“附加插件”。应用不同于常规的模块，从功能上来说，应用提供了核心功能，并为其他模块提供了功能添加和一些选项。应用对功能区提供了核心元素，围绕着其他模块的功能添加，比如账单或者人力资源。所以，应用常常在Odoo的Apps菜单中高亮显示。  
 
@@ -71,23 +69,23 @@ The golden rule is that we shouldn't modify existing modules by changing them di
 
 Instead, we should create new modules to be applied on top of the modules we want to modify, and implement those changes. This is one of Odoo's main strengths: it provides "inheritance" mechanisms that allow custom modules to extend existing modules, either of cial or from the community. The inheritance is possible at all levels data models, business logic, and user interface layers.  
 
-相反，我们应该在我们想要修改的模块顶层创建新的模块，再去执行这些变更。这是Odoo的主要的力量体现之一：它的提供了允许用户自定义模块，以扩展来自官方或者社区的模块的“继承”机制。这种
+与之相反，我们应该在我们想要修改的模块顶层创建新的模块，再去执行这些变更。这是Odoo的主要的力量体现之一：它的提供了允许用户自定义模块，以扩展来自官方或者社区的模块的“继承”机制。这种
 
 Right now, we will create a completely new module, without extending any existing module, to focus on the different parts and steps involved in module creation. We will just take a brief look at each part, since each will be studied in more detail in the later chapters. Once we are comfortable with creating a new module, we can dive into the inheritance mechanisms, which will be introduced in the next chapter.  
 
-此刻，我们要创建一个完整的新模块，而不用扩展任何已存在的模块，
+此刻，我们要创建一个完整的新模块，而不是扩展任何已存在的模块，注重模块创建中的不同部分和步骤。我们将简短的浏览每个部分，因为每个部分都会在后面的章节中进行详细学习。一旦我们适应了创建新模块，我们可以深入到会在下一章中引入的继承机制中。  
 
 ## Creating a new module 创建新模块
 Our module will be a very simple application to keep to-do tasks. These tasks will have
-a single text  eld, for the description, and a checkbox to mark them as complete. We
+a single text field, for the description, and a checkbox to mark them as complete. We
 will also have a button to clean the to-do list from the old completed tasks.  
 
-我们的模块是一个非常简单的保存任务清单的应用。这些任务又一个简单的文本字段，为了便于描述，使用复选框来标记任务的完成。我们也会拥有一个从旧的已完成任务中清除任务清单的按钮。  
+我们的模块是一个非常简单的保存任务清单的应用。这些任务拥有一个简单的文本字段，为了便于描述，使用复选框来标记任务的完成。我们也会拥有一个从旧的已完成任务中清除任务清单的按钮。  
 
 These are very simple specifications, but throughout the book we will gradually add
 new features to it, to make it more interesting for the users.  
 
-指定这些内容非常简单，在本书中我们会逐渐地添加一些新特性到描述符文件，以便用户对它更感兴趣。  
+指定这些内容非常简单，在本书中我们会逐步地添加一些新特性到描述符文件，以便用户对它更感兴趣。  
 
 Enough talk, let's start coding and create our new module.  
 
