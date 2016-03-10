@@ -1,0 +1,1597 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  width: 45em;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 30px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headeranchor-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  padding-right: 6px;
+  padding-left: 30px;
+  margin-left: -30px;
+}
+
+.markdown-body .headeranchor-link:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .headeranchor,
+.markdown-body h2 .headeranchor,
+.markdown-body h3 .headeranchor,
+.markdown-body h4 .headeranchor,
+.markdown-body h5 .headeranchor,
+.markdown-body h6 .headeranchor {
+  display: none;
+  color: #000;
+  vertical-align: middle;
+}
+
+.markdown-body h1:hover .headeranchor-link,
+.markdown-body h2:hover .headeranchor-link,
+.markdown-body h3:hover .headeranchor-link,
+.markdown-body h4:hover .headeranchor-link,
+.markdown-body h5:hover .headeranchor-link,
+.markdown-body h6:hover .headeranchor-link {
+  height: 1em;
+  padding-left: 8px;
+  margin-left: -30px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .headeranchor-link .headeranchor,
+.markdown-body h2:hover .headeranchor-link .headeranchor,
+.markdown-body h3:hover .headeranchor-link .headeranchor,
+.markdown-body h4:hover .headeranchor-link .headeranchor,
+.markdown-body h5:hover .headeranchor-link .headeranchor,
+.markdown-body h6:hover .headeranchor-link .headeranchor {
+  display: inline-block;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px octicons-anchor;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\f05c';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><title>第二章－构建自定义的Odoo应用</title></head><body><article class="markdown-body"><h1 id="building-your-first-odoo-application"><a name="user-content-building-your-first-odoo-application" href="#building-your-first-odoo-application" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>第二章 Building Your First Odoo Application</h1>
+<hr />
+<p>Developing in Odoo most of the time means creating our own modules. In this<br />
+chapter, we will create our first Odoo application, and you will learn the steps<br />
+needed make it available to Odoo and install it.  </p>
+<p>在Odoo中开发，大多是时间意味着创建我们自己的模块。本章，我们将创建自己的第一个Odoo应用，你也会学习到使应用在Odoo中生效的必要步骤，并对应用进行安装。  </p>
+<p>Inspired by the notable todomvc.com project, we will build a simple to-do application. It should allow us to add new tasks, then mark them as completed, and finally clear the task list of all completed tasks.  </p>
+<p>受到著名的todomvc.com项目启发，我们将构建一个简单的计划清单应用。它应该能让我们添加新任务，然后对任务标记完成，最后可以清楚任务清单上的所有已完成任务。  </p>
+<p>You will learn how Odoo follows an MVC architecture, and we will go through the<br />
+following layers during the to-do application implementation:  </p>
+<p>你将学习的到Odoo是如何遵循了MVC架构，在todo应用实现时我们会将下面的三个层贯穿到其中：  </p>
+<ul>
+<li>The model, defining the structure of the data</li>
+<li>The view, describing the user interface</li>
+<li>
+<p>The controller, supporting the business logic of the application</p>
+</li>
+<li>
+<p>模型，定义数据结构</p>
+</li>
+<li>视图，描述用户接口</li>
+<li>控制器，对应用的业务逻辑提供支持</li>
+</ul>
+<p>The model layer is defined with Python objects that have their data is stored in the<br />
+PostgreSQL database. The database mapping is automatically managed by Odoo, and the mechanism responsible for this is the object relational model, (ORM).  </p>
+<p>模型层使用Python对象定义，而模型的数据存储在PostgreSQL数据库中。数据库映射由Odoo来自动地管理，负责管理的映射机制称作“对象关系模型（ORM）”。  </p>
+<p>The view layer describes the user interface. Views are defined using XML, which is<br />
+used by the web client framework to generate data-aware HTML views.  </p>
+<p>视图层描述用户接口。视图使用XML定义，它被客户端框架用来生成人类可感知的HTML视图。  </p>
+<p>The web client views perform data persistent actions by interacting with the server ORM. These can be basic operations such as write or delete, but can also invoke methods de ned in the ORM Python objects, performing more complex business logic. This is what we refer to as the controller layer.  </p>
+<p>Web客户端视图执行数据保存的动作是通过与服务器ORM交互来完成的。这些基本操作可以是写或者删，但是你也可以调用定义在ORM 对象中的方法，以便执行更为复杂的业务逻辑。这就是我们将说到的控制器层。  </p>
+<blockquote>
+<h3 id="note"><a name="user-content-note" href="#note" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Note</h3>
+<p>Note that the concept of controller mentioned here is different from the Odoo web development controllers. Those are program endpoints that web pages can call to perform actions.  </p>
+<h3 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>注释</h3>
+<p>注意这里提到的控制器概念不同于Odoo Web开发中的控制器。这些控制器是可以被web页面调用来执行动作的程序端点。  </p>
+</blockquote>
+<p>With this approach, you will be able to gradually learn about the basic building blocks that make up an application and experience the iterative process of building an Odoo module from scratch.  </p>
+<p>使用该方法，你能够逐步的学习可以让程序运行起来的代码段，也会体验到从零开始构建Odoo模块的交互过程。  </p>
+<h2 id="understanding-applications-and-modules"><a name="user-content-understanding-applications-and-modules" href="#understanding-applications-and-modules" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Understanding applications and modules 理解应用和模块</h2>
+<p>It&rsquo;s common to hear about Odoo modules and applications. But what exactly is the difference between them? Modules are building blocks of Odoo applications. A module can add or modify Odoo features. It is supported by a directory containing a manifest or descriptor file (named <code>__openerp__.py</code>) and the remaining files that implement its features. Sometimes, modules can also be referred to as &ldquo;add-ons.&rdquo; Applications are not different from regular modules, but functionally, they provide a central feature, around which other modules add features or options. They provide the core elements for a functional area, such as accounting or HR, around which other modules add features. Because of this, they are highlighted in the Odoo Apps menu.  </p>
+<p>Odoo模块和应用经常被提及，但是它们之间到底有什么区别呢？模块用来构建Odoo应用的区块。模块可以添加或者修改Odoo的功能。通过在目录中包含一个明显的描述符文件（称作<code>__openerp__.py</code>）,以及剩余的文件实现模块功能。有时候，模块可以称作“附加插件”。应用不同于常规的模块，从功能上来说，应用提供了核心功能，并为其他模块提供了功能添加和一些选项。应用对功能区提供了核心元素，围绕着其他模块的功能添加，比如账单或者人力资源。所以，应用常常在Odoo的Apps菜单中高亮显示。  </p>
+<h2 id="modifying-and-extending-modules"><a name="user-content-modifying-and-extending-modules" href="#modifying-and-extending-modules" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Modifying and extending modules 模块的修改和扩展</h2>
+<p>In the example that will follow, we will create a new module with as few dependencies as possible.  </p>
+<p>在接下来的例子中，我们将创建一个尽可能少些依赖的模块。  </p>
+<p>This will not be the typical case, however. The most frequent situation is where<br />
+modi cations or extensions are needed on an already existing module to fit some specific use cases.  </p>
+<p>不过，这种情况并不常见。最常见的情况是按照需求修改或者扩展一个已经存在的模块，以便适应默写特定应用场合。  </p>
+<p>The golden rule is that we shouldn&rsquo;t modify existing modules by changing them directly. It&rsquo;s considered bad practice to modify existing modules. This is especially true for the of cial modules provided by Odoo. Doing so does not allow a clear separation between the original module code and our modi cations, and makes it dif cult to apply upgrades.  </p>
+<p>黄金定律是我们不能直接地改变已存在的模块。修改已存在的模块被认为是糟糕的做法。这个法则对于Odoo官方提供的模块更是如此。在原生模块代码和我们的自定义的代码之间这样操作是不允许明确分离的，同时也会让升级变得很难。  </p>
+<p>Instead, we should create new modules to be applied on top of the modules we want to modify, and implement those changes. This is one of Odoo&rsquo;s main strengths: it provides &ldquo;inheritance&rdquo; mechanisms that allow custom modules to extend existing modules, either of cial or from the community. The inheritance is possible at all levels data models, business logic, and user interface layers.  </p>
+<p>与之相反，我们应该在我们想要修改的模块顶层创建新的模块，再去执行这些变更。这是Odoo的主要的力量体现之一：它的提供了允许用户自定义模块，以扩展来自官方或者社区的模块的“继承”机制。这种</p>
+<p>Right now, we will create a completely new module, without extending any existing module, to focus on the different parts and steps involved in module creation. We will just take a brief look at each part, since each will be studied in more detail in the later chapters. Once we are comfortable with creating a new module, we can dive into the inheritance mechanisms, which will be introduced in the next chapter.  </p>
+<p>现在，我们要创建一个完整的新模块，而不是扩展任何已存在的模块，注重模块创建中的不同部分和步骤。我们将简短的浏览每个部分，因为每个部分都会在后面的章节中进行详细学习。一旦我们适应了创建新模块，我们可以深入到会在下一章中引入的继承机制中。  </p>
+<h2 id="creating-a-new-module"><a name="user-content-creating-a-new-module" href="#creating-a-new-module" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Creating a new module 创建新模块</h2>
+<p>Our module will be a very simple application to keep to-do tasks. These tasks will have<br />
+a single text field, for the description, and a checkbox to mark them as complete. We<br />
+will also have a button to clean the to-do list from the old completed tasks.  </p>
+<p>我们的模块是一个非常简单的保存任务清单的应用。这些任务拥有一个简单的文本字段，为了便于描述，使用复选框来标记任务的完成。我们也会拥有一个从旧的已完成任务中清除任务清单的按钮。  </p>
+<p>These are very simple specifications, but throughout the book we will gradually add<br />
+new features to it, to make it more interesting for the users.  </p>
+<p>指定这些内容非常简单，在本书中我们会逐步地添加一些新特性到描述符文件，以便用户对它更感兴趣。  </p>
+<p>Enough talk, let&rsquo;s start coding and create our new module.  </p>
+<p>闲话少说，然我们开始编写代码，创建自己的新模块吧。  </p>
+<p>Following the instructions in Chapter 1, Getting Started with Odoo Development, we should have the Odoo server at /odoo-dev/odoo/. To keep things tidy, we will create a new directory alongside it to host our custom modules:  </p>
+<p>紧接着第一章的介绍，我们开始Odoo开发，我们应该服务器应该位于/odoo-dev/odoo/。为了保持整洁，我们在这个目录旁边创建一个新的目录以托管自定义模块。  </p>
+<pre><code class="bash">$ mkdir ~/odoo-dev/custom-addons
+</code></pre>
+
+<p>An Odoo module is a directory containing an <code>__openerp__.py</code> descriptor file. This is still a legacy from when Odoo was named OpenERP, and in the future is expected to become <code>__odoo__.py</code>.  </p>
+<p>Odoo模块是一个包含描述符<code>__openerp__.py</code>的目录。这名字来源自Odoo还被称作OpenERP的时候，在未来会被称作<code>__odoo__.py</code>。  </p>
+<p>It also needs to be Python importable, so it must also have an <code>__init__.py</code> file.  </p>
+<p>它也需要成为可导入到Python包，所以它必须拥有一个<code>__init__.py</code>文件。  </p>
+<p>The module&rsquo;s directory name will be its technical name. We will use <code>todo_app</code> for it. The technical name must be a valid Python identi er: it should begin with a letter and can only contain letters, numbers, and the underscore character. The following commands create the module directory and create an empty <code>__init__.py</code>  file in it:  </p>
+<p>模块的目录名称会成为自身技术名。我们要使用的是<code>todo_app</code>这个名字。技术名必须是一个有效的Python识别符：它应该以字母开始，而且只能包含字母、数字、和下划线。下面的命令创建了模块目录，然后在模块目录后创建了一个空文件<code>__init__.py</code>：  </p>
+<pre><code class="bash">$ mkdir ~/odoo-dev/custom-addons/todo_app
+$ touch ~/odoo-dev/custom-addons/todo_app/__init__.py
+</code></pre>
+
+<p>Next we need to create the descriptor file. It should contain only a Python dictionary<br />
+with about a dozen possible attributes, of which only the name attribute is required. A longer description attribute and the author also have some visibility and<br />
+are advised.  </p>
+<p>接下来，我们需要创建一个描述符文件。它应该只包含一个可能拥有一打属性的Python字典，其中只有name属性是必须的。详细的描述属性和作者也其他一些明显的属性也是我们所推荐的。  </p>
+<p>We should now add an <code>__openerp__.py</code> file alongside the <code>__init__.py</code>  le with the following content:  </p>
+<p>我们应该添加一个和 <code>__init__.py</code>放到一起的<code>__openerp__.py</code>文件</p>
+<pre><code class="json">   {
+       'name': 'To-Do Application',
+       'description': 'Manage your personal Tasks with this module.',
+       'author': 'Daniel Reis',
+       'depends': ['mail'],
+       'application': True,
+  }
+</code></pre>
+
+<p>The depends attribute can have a list of other modules required. Odoo will have them automatically installed when this module is installed. It&rsquo;s not a mandatory attribute, but it&rsquo;s advised to always have it. If no particular dependencies are needed, we should depend on the special base module. You should be careful to ensure all dependencies are explicitly set here, otherwise the module may fail to install in a clean database (due to missing dependencies) or have loading errors, if the other needed modules are loaded afterwards. For our application, we want to depend on the mail module because that is the module that adds the <strong>Messaging</strong> top menu, and we will want to include our new menu options there.  </p>
+<p>depends属性拥有一个其它所需模块构成的列表。Odoo会在该模块安装时自动地安装依赖。这并不是必写的属性，不过这里建议你写上去。如果不需要特殊的依赖，我们应该使用特殊的base模块作为依赖。你应该用心地保证所有的依赖都是正确的，否则在清理数据库（处理缺失的依赖）时模块可能会安装失败，或者是在其他的必需模块向后载入时发生载入错误。就我们的应用而言，我们想依赖mail模块，因为，这是一个添加到消息顶层菜单中的模块，而去我们也想让自己的菜单出现在这里。  </p>
+<p>To be concise, we chose to use very few descriptor keys, but in a real word scenario it is recommended to also use these additional keys, since they are relevant for the Odoo app store:  </p>
+<p>为了简洁期间，我们选择使用很少的几个描述符键，但是在真实应用场景中，建议使用下面这些额外的键，因为这些键都与Odoo应用商店有关：  </p>
+<ul>
+<li><code>summary</code> is displayed as a subtitle for the module.</li>
+<li><code>version</code>, by default, is 1.0. Should follow semantic versioning rules<br />
+(see semver.org for details).</li>
+<li><code>license</code> identifier, by default is AGPL-3.</li>
+<li><code>website</code> is a URL to find more information about the module. This can help people to find more documentation or the issue tracker to file bugs and suggestions.</li>
+<li>
+<p><code>category</code> is the functional category of the module, which defaults to Uncategorized. The list of existing categories can be found in the security Groups form (<code>Settings</code> | <code>User</code> | <code>Groups</code> menu), in the <strong>Application</strong> field drop-down list.</p>
+</li>
+<li>
+<p><code>summary</code> 显示模块的副标题。  </p>
+</li>
+<li><code>version</code> 默认是1.0. 应该遵循语意话的版本命令规则（详情见emver.org）  </li>
+<li><code>license</code> 标识符号，默认为AGPL-3。  </li>
+<li><code>website</code> 是有个可以找到关于模块的更多消息的URL。</li>
+<li><code>category</code> 是模块的功能分类，默认是不分类的。</li>
+</ul>
+<p>These other descriptor keys are also available:  </p>
+<p>另外的一些描述符也是可以使用的：  </p>
+<ul>
+<li>installable is by default True, but can be set to False to disable a module.</li>
+<li>
+<p>auto_install if this is set to True this module is automatically installed if all its dependencies are already installed. It is used for <strong>glue</strong> modules.</p>
+</li>
+<li>
+<p><code>installable</code> 默认为True，但是可以设置为Fasle来禁用模块。</p>
+</li>
+<li>auto_install 如果改它设置为True，那么在模块所需依赖都已经安装的情况下，该模块会自动地安装。它被当做“胶水”模块来使用。  </li>
+</ul>
+<p>Since Odoo 8.0, instead of the description key we can use a README.rst or README.md  le in the module&rsquo;s top directory.  </p>
+<p>从Odoo 8.0开始，我们可以在模块的顶层目录中使用README.rst 或者 README.md而不是使用描述符键。  </p>
+<h2 id="adding-to-the-addons-path"><a name="user-content-adding-to-the-addons-path" href="#adding-to-the-addons-path" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Adding to the addons path 添加插件路径</h2>
+<p>Now that we have a new module, even if minimal, we want to make it available in Odoo.  </p>
+<p>现在我们已经拥有新的模块了，尽管它不是很大，我们也想在Odoo中使用它。  </p>
+<p>For that, we need to make sure the directory the module is in is part of the addons path. And then we need to update the Odoo module list.<br />
+为此，我们需要保证模块的目录在插件路径的一部分。然后我们需要更新Odoo的模块列表。  </p>
+<p>Both operations have been explained in detail in the previous chapter, but we will follow here with a brief overview of what is needed.  </p>
+<p>这两个操作都在前面一章详细说明过了，不过这里我们要做一个需求的简要概览。  </p>
+<p>We will position in our work directory and start the server with the appropriate<br />
+addons path configuration:  </p>
+<p>我们从当前的工作目录中使用合适的插件路径配置来启动服务器：  </p>
+<pre><code class="bash">$ cd ~/odoo-dev
+$ odoo/odoo.py -d v8dev --addons-path=&quot;custom-addons,odoo/addons&quot; --save
+</code></pre>
+
+<p>The <code>--save</code> option saves the options you used in a config file. This spares you from repeating them the next time you restart the server: just run ./odoo.py and the last saved options will be used.  </p>
+<p>&ndash;save选项会把你所使用选项保存到一个配置文件。这个副本会在下一次你启动服务器时被重复使用：运行./odoo.py，之后上次保存的选项将被使用。  </p>
+<p>Look closely at the server log. It should have an <strong>INFO ? openerp: addons paths</strong>: (&hellip;) line, and it should include our custom-addons directory.  </p>
+<p>仔细来看一看服务器日志。它应该包含<strong>INFO ? openerp: addons paths</strong>这样的一行，这一行也应该包含我们的custom-addons目录。  </p>
+<p>Remember to also include any other addons directories you might be using. For instance, if you followed the last chapter&rsquo;s instructions to install the department repository, you might want to include it and use the option:  </p>
+<p>不要忘了将任何你会用的目录都给包括进去。例如，你依照上一章的说明来安装部门仓储，你需要应用以下选项来包括它：  </p>
+<pre><code>--addons-path=&quot;custom-addons,departmernt,odoo/addons&quot;
+</code></pre>
+
+<p>Now let&rsquo;s ask Odoo to acknowledge the new module we just added.  </p>
+<p>现在，让我们向Odoo请求，以确认刚添加的新模块。  </p>
+<p>For that, in the <strong>Modules</strong> section of the <strong>Settings</strong> menu, select the <strong>Update Modules List</strong> option. This will update the module list adding any modules added since the last update to the list. Remember that we need the Technical Features enabled for this option to be visible. That is done by selecting the <strong>Technical Features</strong> checkbox for our user.  </p>
+<p>因此，在设置菜单的模块区域，请选择更新模块列表选项。该操作将更新模块列表，以添加从上次更新到列表中的已添加模块。记住，我们需要启用技术特性以便让该选项正常显示。对用户来说，你可以通过选择Technical Features（技术特性）复选框来完成这个操作。  </p>
+<h2 id="installing-the-new-module"><a name="user-content-installing-the-new-module" href="#installing-the-new-module" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Installing the new module 安装新模块</h2>
+<p>The <strong>Local Modules</strong> option shows us the list of available modules. By default it shows only Apps modules. Since we created an application module we don&rsquo;t need to remove that  lter to see it. Type &ldquo;todo&rdquo; in the search and you should see our new module, ready to be installed.  </p>
+<p>本地模块选项对我们展示了可用模块列表。它默认只显示Apps模块。因为我们创建的是一个应用模块，所以我们需要移除过滤器来查看它。在搜索框内输入“todo”，你可以看到自定义的待安装新模块。  </p>
+<p>omit:img  </p>
+<p>Now click on its <strong>Install</strong> button and you&rsquo;re done!   </p>
+<p>现在点击“安装”按钮，你就完成了对新模块的安装！  </p>
+<h2 id="upgrading-a-module"><a name="user-content-upgrading-a-module" href="#upgrading-a-module" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Upgrading a module 更新模块</h2>
+<p>Developing a module is an iterative process, and you will want changes made on source files to be applied and visible in Odoo.  </p>
+<p>开发模块是一个迭代的过程，你需要去改变的源文件才能让模块在Odoo中显示出来。  </p>
+<p>In most cases this is done by upgrading the module: look up the module in the <strong>Local Modules</strong> list and, since it is installed, you will see an <strong>Upgrade</strong> button available.  </p>
+<p>很多情况下本操作都是通过升级模块来完成的：在本地模块列表中查看模块，因为模块已经被安装了，所以你会看到一个可用的升级按钮。  </p>
+<p>However, when the changes are only in Python code, the upgrade may not have an effect. Instead of a module upgrade, an application server restart is needed.  </p>
+<p>不过，当只是改变Python中的代码的话，升级是不会生效的。与升级模块相反，应用服务器的重启则是必需的。  </p>
+<p>In some cases, if the module has changed both in data files and Python code, you<br />
+might need both operations. This is a common source of confusion for newcomer Odoo developers.  </p>
+<p>在某些情况下，如果模块在数据文件和Python代码中都做出了改变，那么你或许要执行这两种操作。这对于Odoo开发新手来说</p>
+<p>But fortunately, there is a better way. The simplest and fastest way to make all our changes to a module effective is to stop (Ctrl + C) and restart the server process requesting our modules to be upgraded on our work database.  </p>
+<p>不过，幸运的是，还有更好的办法。使应用到模块的变更生效的最简单也最快的办法就是停止服务器（Ctrl + C），然后重启后服务器进程将基于当前使用的模型，来更新模块。  </p>
+<p>To start the server upgrading the todo_app module in the v8dev database, we will use:  </p>
+<p>为了启动服务器以更新v8dev数据库中的todo_app，我们需要用到下面的命令：  </p>
+<pre><code class="bash">$ ./odoo.py -d v8dev -u todo_app
+</code></pre>
+
+<p>The -u option (or &ndash;update in the long form) requires the -d option and accepts a comma-separated list of modules to update. For example, we could use:-u todo_app,mail.  </p>
+<p>-u选项（或者非简写模式下的&ndash;update ）需要-d选项，并接受用逗号分隔的需要更新模块列表。例如，我们可以使用-u todo_app,mail。  </p>
+<p>Whenever you need to upgrade work in progress modules throughout the book, the safest way to do so is to go to the terminal window where you have Odoo running, stop the server, and restart it with the command above. Frequently pressing the Up arrow key will be enough, since it should bring you the previous command you used to start the server.  </p>
+<p>不论什么时候，</p>
+<p>Unfortunately, updating the module list and uninstalling modules are both actions not available through the command line. These have to be done through the web interface, in the Settings menu.  </p>
+<p>不幸的是，更新模块列表，以及卸载模块都是不可以通过命令行来完成的动作。这些动作必需通过web管理界面中的Settings菜单来完成。  </p>
+<h2 id="creating-an-application-model"><a name="user-content-creating-an-application-model" href="#creating-an-application-model" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Creating an application model 创建应用模型</h2>
+<p>Now that Odoo knows about our new module, let&rsquo;s start by adding to it a simple model.  </p>
+<p>现在，Odoo已经知道了新的模块，让我们从为它添加一个简单的模型开始。  </p>
+<p>Models describe business objects, such as an opportunity, a sales order, or a partner<br />
+(customer, supplier, and so on.). A model has a list of attributes and can also define its specific business.  </p>
+<p>模型描述业务对象，比如一次机会，一个销售订单，或者业务伙伴（消费者，供应商，等等）。模型拥有一个属性列表，</p>
+<p>Models are implemented using a Python class derived from an Odoo template class. They translate directly to database objects, and Odoo automatically takes care of that when installing or upgrading the module.  </p>
+<p>模型是使用派生自Odoo模板类的Python类来实现的。这些模型被直接地翻译为数据库对象，当安装或者升级模块时Odoo也会自动地处理它们。  </p>
+<p>Some consider it good practice to keep the Python files for models inside a models subdirectory. For simplicity we won&rsquo;t be following that here, so let&rsquo;s create a todo_model.py file in the todo_app module main directory.  </p>
+<p>将模型文件放到一个models子目录内可以看作是最佳实践。不过，简单起见，我们不会按照最佳实践做，所以我们在todo_app模块主目录内创建todo_model.py文件：  </p>
+<p>Add the following content to it:  </p>
+<p>添加以下内容到模型文件：  </p>
+<pre><code class="python">   # -*- coding: utf-8 -*-
+   from openerp import models, fields
+
+
+   class TodoTask(models.Model):
+       _name = 'todo.task'
+       name = fields.Char('Description', required=True)
+       is_done = fields.Boolean('Done?')
+       active = fields.Boolean('Active?', default=True)
+</code></pre>
+
+<p>The first line is a special marker telling the Python interpreter that this file has<br />
+UTF-8, so that it can expect and handle non-ASCII characters. We won&rsquo;t be using any, but it&rsquo;s safer to use it anyway.  </p>
+<p>第一行是一个告诉Python解释器该文件使用的是UTF－8的特殊标记，因此它可以用来处理非－ASCII字符。我们不再使用除此之外的任何东西，而且为了安全起见最好还是使用它。  </p>
+<p>The second line makes available the models and fields objects from the Odoo core.  </p>
+<p>第二行从Odoo内核构建可用的models和fields对象。  </p>
+<p>The third line declares our new model. It&rsquo;s a class derived from models.Model. The next line sets the <code>_name</code> attribute defining the identifier that will be used throughout Odoo to refer to this model. Note that the actual Python class name is meaningless to the other Odoo modules. The <code>_name</code> value is what will be used as an identifier.  </p>
+<p>第三行生命我们的新模型。这是一个派生自models.Model的类。接下来的行设置了定义标识符的<code>_name</code>属性，该属性在Odoo中对该模型进行全局引用。注意，实际的Python类名称对于其它Odoo模块是无意义的。<code>_name</code>的值被当做一个标识符来使用。  </p>
+<p>Notice that this and the following lines are indented. If you&rsquo;re not familiar with<br />
+Python you should know that this is important: indentation defines a nested code<br />
+block, so these four line should all be equally indented.  </p>
+<p>注意，本行以及接下来的行都是缩进的。如果你不熟悉Python，那么你应该知道这件事非常重要：缩进定义了嵌套的代码块，因此这四行都应该使用相同的缩进。  </p>
+<p>The last three lines define the model&rsquo;s fields. It&rsquo;s worth noting that name and active are names of special fields. By default Odoo will use the name  eld as the record&rsquo;s title when referencing it from other models. The active field is used to inactivate records, and by default only active records will be shown. We will use it to clear away completed tasks without actually deleting them from the database.  </p>
+<p>最后三行定义了模型的字段。特殊字段的那么。默认，当Odoo从其它模型引用该模型事，会使用名称字段作为记录的标题。active字段被用做对记录的实效进行标记，而且默认仅有活动记录才被显示。我们要用它来清除整个任务而不会把这些字段从数据库中删除。 </p>
+<p>Right now, this file is not yet used by the module. We must tell Odoo to load it with the module in the <code>__init__.py</code> file. Let&rsquo;s edit it to add the following line:  </p>
+<p>现在，这个文件还没有被模块使用。我们必需在<code>__init__.py</code>文件中告诉Odoo使用模块载入这个文件。让我们编辑这个文件，并添加下面的行：  </p>
+<pre><code class="python">   from . import todo_model
+</code></pre>
+
+<p>That&rsquo;s it. For our changes to take effect the module has to be upgraded. Locate the To-Do application in the Local Modules and click on its Upgrade button.  </p>
+<p>大概就是这样。为了变更生效，模块必须升级。找到位于本地模块中的To－Do应用，然后点击模块的升级按钮。  </p>
+<p>Now we can inspect the newly created model in the Technical menu. Go to Database Structure | Models and search for the todo.task model on the list. Then click on it to see its definition:   </p>
+<p>现我们可以检查在技术菜单中新创建的模型。到“数据库结构｜模型”中去搜索列表中todo.task模型。然后点击模型，便可以看到模型的定义：  </p>
+<p>img:omit  </p>
+<p>If everything went right, this will let us confirm that the model and our fields were created. If you made changes and don&rsquo;t see them here, try a server restart, as described before, to force all of the Python code to be reloaded.  </p>
+<p>如果没有问题的话，通过查看模型定义可以让我们确认之前创建的模型和字段。要是你改变了模型却没有在这里找到它们的话，请尝试重启服务器，就像之前所说的那样，这样做可以强制重新载入Python代码。  </p>
+<p>We can also see some additional fields we didn&rsquo;t declare. These are the five reserved fields Odoo automatically adds to any model. They are as follows:  </p>
+<p>我们可以看到我们没有声明的额外字段。它们是Odoo自动添加到任意模型的保留字段。这些字段如下：  </p>
+<ul>
+<li>id: This is the unique identifier for each record in the particular model.</li>
+<li>create_date and create_uid: These tell us when the record was created and who created it, respectively.</li>
+<li>
+<p>write_date and write_uid: These tell us when the record was last modified and who modified it, respectively.</p>
+</li>
+<li>
+<p>id: 这是在特殊模型中每个记录都要使用的唯一标识符号。  </p>
+</li>
+<li>create_date and create_uid: 这写字段分别告诉我们，记录何时被创建，由什么人创建的。  </li>
+<li>write_date and write_uid: 这些字段分别告诉我们字段的修改实践以及修改人。  </li>
+</ul>
+<h2 id="adding-menu-entries"><a name="user-content-adding-menu-entries" href="#adding-menu-entries" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Adding menu entries 添加菜单项</h2>
+<p>Now that we have a model to store our data, let&rsquo;s make it available on the user interface.  </p>
+<p>现在，我们拥有了一个存储数据的模型，让我们将它显示在用户界面上吧。  </p>
+<p>All we need to do is to add a menu option to open the To-do Task model so<br />
+that it can be used. This is done using an XML file. Just as in the case of models, some people consider it good practice to keep the view de nitions inside a views subdirectory.  </p>
+<p>我们要做的就是添加一个菜单项以便打开To-do Task 模型，这样它才可以被使用。可以使用XML文件来实现这个目的。就像在模型例子中所做的那样，有些人认为最佳时间就是在子目录views中定义视图。  </p>
+<p>We will create a new todo_view.xml data file in the module&rsquo;s top directory, and it will declare a menu item and the action performed by it:  </p>
+<p>我们将在模块的顶层目录中创建一个新的数据文件todo_view.xml，它会声明一个菜单项，以及该菜单所执行的动作：  </p>
+<pre><code class="xml">   &lt;?xml version=&quot;1.0&quot;?&gt;
+   &lt;openerp&gt;
+    &lt;data&gt;
+       &lt;!-- Action to open To-do Task list --&gt;
+       &lt;act_window id=&quot;action_todo_task&quot;
+         name=&quot;To-do Task&quot;
+         res_model=&quot;todo.task&quot;
+         view_mode=&quot;tree,form&quot; /&gt;
+       &lt;!-- Menu item to open To-do Task list --&gt;
+       &lt;menuitem id=&quot;menu _todo_task&quot;
+         name=&quot;To-Do Tasks&quot;
+         parent=&quot;mail.mail_feeds&quot;
+         sequence=&quot;20&quot;
+         action=&quot;action_todo_task&quot; /&gt;
+    &lt;/data&gt;
+  &lt;/openerp&gt;
+</code></pre>
+
+<p>The user interface, including menu options and actions, is stored in database tables.<br />
+The XML file is a data file used to load those definitions into the database when the module is installed or upgraded. This is an Odoo data file, describing two records to add to Odoo:  </p>
+<p>用户接口，以及菜单选项和动作都存储在数据库表中。 在模块安装和升级时，XML文件用来载入这些定义到数据库的一个文件。这是一个添加了两个record到Odoo的数据文件。  </p>
+<ul>
+<li>The <code>&lt;act_window&gt;</code> element defines a client-side Window Action to open the todo.task model defined in the Python file, with the tree and form views enabled, in that order.  </li>
+<li>
+<p>The <code>&lt;menuitem&gt;</code> defines a menu item under the Messaging menu (identified by <code>mail.mail_feeds</code>), calling the <code>action_todo_task</code> action, which was defined before. The sequence lets us set the order of the<br />
+menu options.  </p>
+</li>
+<li>
+<p><code>&lt;act_window&gt;</code>定义元素定义了用户“窗口动作”，一打开定义在Python文件中的todo.task模型，同时按照顺序启用了tree和form视图。  </p>
+</li>
+<li><code>&lt;menuitem&gt;</code>定义了“消息”菜单（通过<code>mail.mail_feeds</code>识别）下面的一个菜单选项，它调用的是上面定义的<code>action_todo_task</code> 动作。sequence让我们设置菜单选项的顺序。  </li>
+</ul>
+<p>Now we need to tell the module to use the new XML data file. That is done in the <code>__openerp__.py</code> file using the data attribute. It defines the list of  les to be loaded by the module. Add this attribute to the descriptor&rsquo;s dictionary:  </p>
+<p>我们需要告诉模块去使用新的XML数据文件。在<code>__openerp__.py</code>写上数据属性即可完成。它定义了可以被模块载入的文件列表。添加下面的属性到描述符字典：  </p>
+<pre><code class="python">'data': ['todo_view.xml'],
+</code></pre>
+
+<p>Now we need to upgrade the module again for these changes to take effect. Go to the Messaging menu and you should see our new menu option available.  </p>
+<p>现在，我们需要再次升级模块，以便应用这些变更。找到消息菜单，你应该可以看到新的菜单选项。  </p>
+<p>img:omit  </p>
+<p>Clicking on it will open an automatically generated form for our model, allowing us to add and edit records.  </p>
+<p>点击它将打开一个为模型而自动生成的表单，而这个表单则允许我们添加和编辑记录。  </p>
+<p>Views should be defined for models to be exposed to the users, but Odoo is nice<br />
+enough to do that automatically if we don&rsquo;t, so we can work with our model right<br />
+away, without having any form or list views defined yet.  </p>
+<p>视图是为需要暴露给用户的模型而定义的，不过，要是我们不去做话，Odoo也会自动地来帮助我们实现视图，所以我们可以马上使用模型，而不用去定义面前还没定义的表单视图或者列表视图。  </p>
+<p>So far, so good! Let&rsquo;s improve our user interface now. Try the gradual improvements as shown in the next sections, doing frequent module upgrades, and don&rsquo;t be afraid to experiment.  </p>
+<p>到目前为止，还算可以！现在，我们来改进用户界面。在下一节中，我们会试着渐进式的改进，</p>
+<blockquote>
+<h3 id="tips"><a name="user-content-tips" href="#tips" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Tips</h3>
+<p>In case an upgrade fails because of an XML error, don&rsquo;t panic! Comment out the last edited XML portions, or remove the XML file from <code>__openerp__.py</code>, and repeat the upgrade. The server should start correctly. Now read the error message in the server log carefully—it should point you to where the problem is.  </p>
+<h3 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>提示</h3>
+<p>在碰到因为XML错误引起的更新失败时，不要怕！注释掉最后编辑XML的部分，或者是从<code>__openerp__</code>中溢出XML文件，然后再次执行升级。服务器应该会正常启动。现在仔细地去读服务器日志中的错误消息，日志里应该可以找到问题所在。  </p>
+</blockquote>
+<h2 id="creating-views-form-tree-and-search"><a name="user-content-creating-views-form-tree-and-search" href="#creating-views-form-tree-and-search" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Creating views – form, tree, and search 创建视图——表单、树形、和搜索</h2>
+<p>As we have seen, if no view is defined, Odoo will automatically generate basic views to get you going. But surely you would like to define the module views yourself, so that&rsquo;s what we&rsquo;ll do next.  </p>
+<p>正如我们所看的，如果定义了视图，Odoo为让你继续操作会自动生成基础视图。不过，你一定想要定义自己的模块视图，这也是接下来我们要做的事情。  </p>
+<p>Odoo supports several types of views, but the three main ones are: list (also called tree), form, and search views. We&rsquo;ll add an example of each to our module.  </p>
+<p>Odoo支持多种类型的视图，不过只有三中是主要的：列表（也称为树形），表单、以及搜索视图。我们为每一个模块都添加一个例子。  </p>
+<p>All views are stored in the database, in the ir.model.view model. To add a view in a module, we declare a <code>&lt;record&gt;</code> element describing the view in an XML file that will be loaded into the database when the module is installed.  </p>
+<p>所有的视图都存储在数据库里的ir.model.view模型中。要在一个模块中添加视图，我们声明了一个在模块安装时会被载入到数据库中的XML文件中的描述视图的<code>&lt;record&gt;</code>记录。  </p>
+<h3 id="creating-a-form-view"><a name="user-content-creating-a-form-view" href="#creating-a-form-view" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Creating a form view 创建一个表单视图</h3>
+<p>Edit the XML we just created to add this <code>&lt;record&gt;</code> element just after the <code>&lt;data&gt;</code> opening tag at the top:  </p>
+<p>编辑刚才创建的XML，将<code>&lt;record&gt;</code>元素添加到在顶部的<code>&lt;data&gt;</code>开放标签之后：  </p>
+<pre><code class="xml">   &lt;record id=&quot;view_form_todo_task&quot; model=&quot;ir.ui.view&quot;&gt;
+     &lt;field name=&quot;name&quot;&gt;To-do Task Form&lt;/field&gt;
+     &lt;field name=&quot;model&quot;&gt;todo.task&lt;/field&gt;
+     &lt;field name=&quot;arch&quot; type=&quot;xml&quot;&gt;
+       &lt;form string=&quot;To-do Task&quot;&gt;
+         &lt;field name=&quot;name&quot;/&gt;
+         &lt;field name=&quot;is_done&quot;/&gt;
+         &lt;field name=&quot;active&quot; readonly=&quot;1&quot;/&gt;
+        &lt;/form&gt;
+     &lt;/field&gt;
+   &lt;/record&gt;
+</code></pre>
+
+<p>This will add a record to the model <code>ir.ui.view</code> with the identifier <code>view_form_ todo_task</code>. The view is for the model todo.task and named To-do Task Form. The name is just for information, does not have to be unique, but should allow one to easily identify what record it refers to.  </p>
+<p>上面的内容使用标识符<code>view_form_ todo_task</code>对模型<code>ir.ui.view</code>添加一个记录。todo.task模型的视图被称作 <code>To-do Task Form</code>。名称仅是信息而已，没有让名称唯一化的必要，但应该是可以标示出自己在引用什么记录。  </p>
+<p>The most important attribute is arch, containing the view definition. Here we say it&rsquo;s a form, and it contains three fields, and we chose to make the active field read only.  </p>
+<p>最重要的属性是定义是包含了视图定义的arch。这里我们称它为表单，它包含了三个字段，我们选择让活动字段变为只读。  </p>
+<h3 id="formatting-as-a-business-document"><a name="user-content-formatting-as-a-business-document" href="#formatting-as-a-business-document" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Formatting as a business document 为业务文档进行格式化</h3>
+<p>The above provides a basic form view, but we can make some improvements to make it nicer. For document models Odoo has a presentation style that mimics a paper page. The form contains two elements: a <code>&lt;head&gt;</code>, containing action buttons, and a <code>&lt;sheet&gt;</code>, containing the data fields:  </p>
+<p>上面提供了一个基本的表单视图，不过我们可以做出一些改进，让它显示更为友好。关于文档模型Odoo使用的是一个仿纸质页面的表现风格。表单包含了两个元素：包含动作按钮的<code>&lt;head&gt;</code>，以及包含数据字段的<code>&lt;sheet&gt;</code>：  </p>
+<pre><code class="xml">   &lt;form&gt;
+     &lt;header&gt;
+     &lt;!-- Buttons go here--&gt;
+     &lt;/header&gt;
+     &lt;sheet&gt;
+         &lt;!-- Content goes here: --&gt;
+         &lt;field name=&quot;name&quot;/&gt;
+         &lt;field name=&quot;is_done&quot;/&gt;
+     &lt;/sheet&gt;
+   &lt;/form&gt;
+</code></pre>
+
+<h3 id="adding-action-buttons"><a name="user-content-adding-action-buttons" href="#adding-action-buttons" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Adding action buttons 添加动作按钮</h3>
+<p>Forms can have buttons to run actions. These are able to trigger work ow actions, run Window Actions, such as opening another form, or run Python functions defined in the model.  </p>
+<p>表单可以拥有运行动作的按钮。这些按钮能够触发工作流动作，运行Window动作，比如打开另外一个表单，或者是运行定义在模型中的函数：  </p>
+<p>They can be placed anywhere inside a form, but for document-style forms, the recommended place for them is the <code>&lt;header&gt;</code> section.  </p>
+<p>在表单内部这些按钮可以被方法任何地方，不过为了遵循文档风格的表单，我们建议还是将这些按钮放倒 <code>&lt;header&gt;</code> 区域。  </p>
+<p>For our application, we will add two buttons to run methods of the <code>todo.task</code> model:  </p>
+<p>对于我们的应用而言，我们需要添加两个按钮以运行<code>todo.task</code>模型的方法：  </p>
+<pre><code class="html">   &lt;header&gt;
+     &lt;button name=&quot;do_toggle_done&quot; type=&quot;object&quot;
+       string=&quot;Toggle Done&quot; class=&quot;oe_highlight&quot; /&gt;
+     &lt;button name=&quot;do_clear_done&quot; type=&quot;object&quot;
+       string=&quot;Clear All Done&quot; /&gt;
+   &lt;/header&gt;
+</code></pre>
+
+<p>The basic attributes for a button are: string with the text to display on the button, the type of action it performs, and the name that is the identifier for that action. The optional class attribute can apply CSS styles, just like in regular HTML. </p>
+<p>按钮的基本属性是：含有文本的string会显示在按钮上————按钮要执行的动作类型，name用做动作的标识。可选的class属性合普通HTML一样可以应用CSS样式。  </p>
+<h3 id="organizing-forms-using-groups-group"><a name="user-content-organizing-forms-using-groups-group" href="#organizing-forms-using-groups-group" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Organizing forms using groups 利用group来组织表单</h3>
+<p>The <code>&lt;group&gt;</code> tag allows organizing the form content. Placing <code>&lt;group&gt;</code> elements inside a <code>&lt;group&gt;</code> element creates a two column layout inside the outer group. Group elements are advised to have a name to make it easier for other modules to extend on them.  </p>
+<p><code>&lt;group&gt;</code>标签能够过组织表单内容。将<code>&lt;group&gt;</code>元素放倒一个<code>&lt;group&gt;</code> 元素中可以在外部的group中创建一个两列的布局。建议group元素包含一个能够过让其它模块能够在自身基础上进行相对容易的扩展。  </p>
+<p>We will use this to better organize our content. Let&rsquo;s change the <code>&lt;sheet&gt;</code> content of our form to match this:  </p>
+<p>我们使用group来更好地组织内容。我们来变更表单的<code>&lt;sheet&gt;</code>内容以匹配以下内容：  </p>
+<pre><code class="xml">     &lt;sheet&gt;
+       &lt;group name=&quot;group_top&quot;&gt;
+         &lt;group name=&quot;group_left&quot;&gt;
+           &lt;field name=&quot;name&quot;/&gt;
+         &lt;/group&gt;
+         &lt;group name=&quot;group_right&quot;&gt;
+           &lt;field name=&quot;is_done&quot;/&gt;
+           &lt;field name=&quot;active&quot; readonly=&quot;1&quot;/&gt;
+         &lt;/group&gt;
+       &lt;/group&gt;
+     &lt;/sheet&gt;
+</code></pre>
+
+<h3 id="the-complete-form-view"><a name="user-content-the-complete-form-view" href="#the-complete-form-view" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The complete form view 完整的表单视图</h3>
+<p>At this point, our record in todo_view.xml for the todo.task form view should look like this:  </p>
+<p>站在这个角度来说，用于todo.task表单视图的todo_view.xml的中的记录，应该是这个样子：  </p>
+<pre><code class="xml">&lt;record id=&quot;view_form_todo_task&quot; model=&quot;ir.ui.view&quot;&gt;
+      &lt;field name=&quot;name&quot;&gt;To-do Task Form&lt;/field&gt;
+      &lt;field name=&quot;model&quot;&gt;todo.task&lt;/field&gt;
+      &lt;field name=&quot;arch&quot; type=&quot;xml&quot;&gt;
+        &lt;form&gt;
+          &lt;header&gt;
+            &lt;button name=&quot;do_toggle_done&quot; type=&quot;object&quot;
+                    string=&quot;Toggle Done&quot; class=&quot;oe_highlight&quot; /&gt;
+            &lt;button name=&quot;do_clear_done&quot; type=&quot;object&quot;
+                    string=&quot;Clear All Done&quot; /&gt;
+          &lt;/header&gt;
+          &lt;sheet&gt;
+              &lt;group name=&quot;group_top&quot;&gt;
+              &lt;group name=&quot;group_left&quot;&gt;
+                &lt;field name=&quot;name&quot;/&gt;
+              &lt;/group&gt;
+              &lt;group name=&quot;group_right&quot;&gt;
+                &lt;field name=&quot;is_done&quot;/&gt;
+                &lt;field name=&quot;active&quot; readonly=&quot;1&quot; /&gt;
+              &lt;/group&gt;
+            &lt;/group&gt;
+          &lt;/sheet&gt;
+        &lt;/form&gt;
+
+      &lt;/field&gt;
+   &lt;/record&gt;
+</code></pre>
+
+<p>Remember that for the changes to be loaded into our Odoo database, a module upgrade is needed. To see the changes in the web client, the form needs to be reloaded: either click again on the menu option that opens it, or reload the browser page (F5 in most browsers).  </p>
+<p>记住，如果要将变更载入到Odoo数据库中，模块也应该升级。为了在web客户端浏览变更，表单需要重新载入：在此点击打开的菜单选项，或者是重新加载页面（多数浏览器使用的是F5）。  </p>
+<p>Now, let&rsquo;s add the business logic for the actions buttons.  </p>
+<p>现在，让我们为动作按钮添加业务逻辑。  </p>
+<h2 id="adding-list-and-search-views"><a name="user-content-adding-list-and-search-views" href="#adding-list-and-search-views" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Adding list and search views 添加列表和搜索视图</h2>
+<p>When viewing a model in list mode, a <code>&lt;tree&gt;</code> view is used. Tree views are capable of displaying lines organized in hierarchies, but most of the time they are used to display plain lists.  </p>
+<p>当在列表模式浏览一个模型时，使用的是<code>&lt;tree&gt;</code>视图。树形视图在分层结构中能够兼容又组织结构的显示行，不过很多时候它们被用来显示普通列表。  </p>
+<p>We can add the following tree view definition to <code>todo_view.xml</code>:  </p>
+<p>我们可以添加下面的的树形视图定义到<code>todo_view.xml</code>：  </p>
+<pre><code class="xml">&lt;record id=&quot;view_tree_todo_task&quot; model=&quot;ir.ui.view&quot;&gt;
+     &lt;field name=&quot;name&quot;&gt;To-do Task Tree&lt;/field&gt;
+     &lt;field name=&quot;model&quot;&gt;todo.task&lt;/field&gt;
+     &lt;field name=&quot;arch&quot; type=&quot;xml&quot;&gt;
+       &lt;tree colors=&quot;gray:is_done==True&quot;&gt;
+         &lt;field name=&quot;name&quot;/&gt;
+         &lt;field name=&quot;is_done&quot;/&gt;
+       &lt;/tree&gt;
+     &lt;/field&gt;
+&lt;/record&gt;
+</code></pre>
+
+<p>We have defined a list with only two columns, name and is_done. We also added a nice touch: the lines for done tasks (is_done==True) are shown in grey.  </p>
+<p>我们定义了一个仅有两个列（name和is_done）的列表。我们也可以添加一个好看的按钮：完成任务的行（｀is_done==True｀）会显示为灰色。  </p>
+<p>At the top right of the list Odoo displays a search box. The default fields it searches for and available predefined filters can be defined by a <code>&lt;search&gt;</code> view.  </p>
+<p>在列表到右侧，Odoo显示了一个搜索框。默认的字段搜索的是事先定义好的，过滤器可以通过<code>&lt;search&gt;</code>视图来定义。  </p>
+<p>As before, we will add this to the todo_view.xml:  </p>
+<p>和之前一样，我们添加下面的内容到todo_view.xml：  </p>
+<pre><code class="xml">   &lt;record id=&quot;view_filter_todo_task&quot; model=&quot;ir.ui.view&quot;&gt;
+     &lt;field name=&quot;name&quot;&gt;To-do Task Filter&lt;/field&gt;
+     &lt;field name=&quot;model&quot;&gt;todo.task&lt;/field&gt;
+     &lt;field name=&quot;arch&quot; type=&quot;xml&quot;&gt;
+       &lt;search&gt;
+         &lt;field name=&quot;name&quot;/&gt;
+         &lt;filter string=&quot;Not Done&quot;
+                 domain=&quot;[('is_done','=',False)]&quot;/&gt;
+         &lt;filter string=&quot;Done&quot;
+                 domain=&quot;[('is_done','!=',False)]&quot;/&gt;
+       &lt;/search&gt;
+     &lt;/field&gt;
+   &lt;/record&gt;
+</code></pre>
+
+<p>The <code>&lt;field&gt;</code> elements define fields that are also searched when typing in the search box. The <code>&lt;filter&gt;</code> elements add predefined filter conditions, using domain syntax that can be selected with a user click.  </p>
+<p><code>&lt;field&gt;</code>元素定义了在搜索框中进行输入时可以被搜索的定义字段。<code>&lt;filter&gt;</code>元素添加之前定义过的过滤器条件，域语法的选择在用户点击时进行选择。  </p>
+<h2 id="adding-business-logic"><a name="user-content-adding-business-logic" href="#adding-business-logic" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Adding business logic  添加业务逻辑</h2>
+<p>Now we will add some logic to our buttons. Edit the todo_model.py Python file to add to the class the methods called by the buttons. We will use the new API introduced in Odoo 8.0. For backward compatibility, by default Odoo expects the old API, and to create methods using the new API we need to use Python decorators on them. First we need to import the new API, so add it to the import statement at the top of the Python file:  </p>
+<p>现在，我们要给按钮添加一些逻辑。编辑Python文件todo_model.py，然后添加可以被按钮调用的类方法。我们使用在Odoo 8.0中引入的新API。考虑到向后兼容性，默认Odoo使用的是旧版本的API，要创建使用新API的方法，我们需要对定义的方法使用Python装饰器。首先我们需要导入新API，</p>
+<pre><code class="python">from openerp import models, fields, api
+</code></pre>
+
+<p>The <strong>Toggle Done</strong>  button&rsquo;s action will be very simple: just toggle the Is Done?  ag. For logic on a record, the simplest approach is to use the <code>@api.one</code> decorator. Here self will represent one record. If the action was called for a set of records, the API would handle that and trigger this method for each of the records.  </p>
+<p>Toggle Done按钮的动作非常简单：切换是否完成？对于一条记录的逻辑来说，最简单的方法是使用装饰器<code>@api.one</code>。这里self表示的是一条记录。如果动作被一组记录调用，API就可以处理这样的调用，然后喂每一条记录出发这个方法。  </p>
+<p>Inside the TodoTask class add:  </p>
+<p>在TodoTask类内部添加以下内容：  </p>
+<pre><code class="python">@api.one
+   def do_toggle_done(self):
+       self.is_done = not self.is_done
+       return True
+</code></pre>
+
+<p>As you can see, it simply modifies the is_done field, inverting its value. Methods, then, can be called from the client side and must always return something. If they return None, client calls using the XMLRPC protocol won&rsquo;t work. If we have nothing to return, the common practice is to just return the True value.  </p>
+<p>如你所见，上面的方法简单的修改了is_done字段，并转换了该字段值。然后，方法就能够从客户端调用了，而且方法必须有返回的内容。如果，方法返回了None，那么使用XMLRPC协议的客户端调用就不会正常工作。如果我们没有需要返回的东西，常见的做法是返回真值。  </p>
+<p>After this, if we restart the Odoo server to reload the Python file, the Toggle Done button should now work.  </p>
+<p>这样做之后，如果我们重启Odoo服务器来读取Python文件，现在，Toggle Done这个按钮就可以使用了。  </p>
+<p>For the <strong>Clear All Done</strong> button we want to go a little further. It should look for all active records that are done, and make them inactive. Form buttons are supposed to act only on the selected record, but to keep things simple we will do some cheating, and it will also act on records other than the current one:  </p>
+<p>对于<strong>Clear All Done</strong>按钮我们想做的更近一步。它应该能够查询所有已完成的活动记录，而且能够将这些记录标记为不活动。表单按钮被假设为仅与被选择的记录交互，但是，简单起见，我们就偷懒一点儿，它也可以和其它的记录交互，而仅仅是当前的记录：  </p>
+<pre><code class="python"> @api.multi
+   def do_clear_done(self):
+       done_recs = self.search([('is_done', '=', True)])
+       done_recs.write({'active': False})
+       return True
+</code></pre>
+
+<p>On methods decorated with @api.multi the self represents a recordset. It can contain a single record, when used from a form, or several records, when used from a list view. We will ignore the self recordset and build our own done_recs recordset containing all the tasks that are marked as done. Then we set the active flag to False, in all of them.  </p>
+<p>被@api.multi所装饰的方法的self表示一个记录集。在它被表单调用时，它可以包含一个单记录，或者是从列表视图调用时，包含多个记录。我们会忽略self的记录集，然后构建我们自己的包含了所有被标记为done的任务的记录集done_recs。接着，我们将记录集中的全部活动旗帜都设置为False。  </p>
+<p>The search is an API method returning the records meeting some conditions. These conditions are written in a domain, that is a list of triplets. We&rsquo;ll explore domains in more detail later.  </p>
+<p>search是一个返回匹配指定条件的记录集的API方法。这些条件被写在一个域中，即一个三元素的列表。稍后我们会学习域的更多细节。  </p>
+<p>The write method sets values at once on all elements of the recordset. The values to write are described using a dictionary. Using write here is more efficient than iterating through the recordset to assign the value to them one by one.  </p>
+<p>write方法一次性对记录的所有元素进行赋值。被写入的值使用字典来表示。这里使用write相比迭代整个记录再一个接一个的赋值效率更高。  </p>
+<p>Note that <code>@api.one</code> is not the most efficient for these actions, since it will run for each selected record. The @api.multi ensures that our code runs only once even if there is more than one record selected when running the action. This could happen if an option for it were to be added on the list view.  </p>
+<p>注意，对于这些动作来说</p>
+<h2 id="setting-up-access-control-security"><a name="user-content-setting-up-access-control-security" href="#setting-up-access-control-security" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Setting up access control security 设置访问控制安全</h2>
+<p>You might have noticed, upon loading our module is getting a warning message in the server log: <strong>The model todo.task has no access rules, consider adding one</strong>.  </p>
+<p>你或许也注意到了，之前在载入模块时我们碰到了服务器日志中的错误警告： <strong>The model todo.task has no access rules, consider adding one</strong>.  </p>
+<p>The message is pretty clear: our new model has no access rules, so it can&rsquo;t be used by anyone other than the admin super user. As a super user the admin ignores data access rules, that&rsquo;s why we were able to use the form without errors. But we must fix this before other users can use it.  </p>
+<p>这条消息说得很清楚：我们的新模型还没有访问规则，因此模型可以被任何其它的非admin超级用户使用。作为超级用户，admin跳过了数据访问规则，这就是我们为什么能够过使用表单而不会碰到错误消息的原因。在其它用户使用这个漏洞之前，我们必须修复它。  </p>
+<p>To get a picture of what information is needed to add access rules to a model, use the web client and go to: Settings|Technical|Security|Access Controls List.  </p>
+<p>为了获取多模型添加访问规则所需的信息蓝图，我们可以使用web客户端依次访问：Settings|Technical|Security|Access Controls List。  </p>
+<p>img:omit   </p>
+<p>Here we can see the ACL for the mail.mail model. It indicates, per group, what actions are allowed on records.  </p>
+<p>这里我们可以看到mail.mail模型的ACL。说明了，每一个组对记录都有什么动作可以执行。  </p>
+<p>This information needs to be provided by the module, using a data file to load the<br />
+lines into the ir.model.access model. We will add full access on the model to the employee group. Employee is the basic access group nearly everyone belongs to.  </p>
+<p>这些信息应由模块来提供，使用数据模型以载入行到ir.model.access模型。我们会给雇员组添加完整的访问权限。雇员是一个基本的访问组，几乎所有人都在其中。  </p>
+<p>This is usually done using a CSV file named security/ir.model.access.csv. Models have automatically generated identi ers: for todo.task the identi er is model_todo_task. Groups also have identi ers set by the modules creating them. The employee group is created by the base module and has identi er base.group_user. The line&rsquo;s name is only informative and it&rsquo;s best if it&rsquo;s kept unique. Core modules usually use a dot-separated string with the model name and the group. Following this convention we would use todo.task.user.  </p>
+<p>Now we have everything we need to know, let&rsquo;s add the new file with the<br />
+following content:  </p>
+<pre><code>   id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_
+   unlink
+   access_todo_task_group_user,todo.task.user,model_todo_task,base.group_
+   user,1,1,1,1
+</code></pre>
+
+<p>We must not forget to add the reference to this new  le in the <code>__openerp__.py</code> descriptor&rsquo;s data attribute, so that should look like this:  </p>
+<pre><code class="python">   'data': [
+       'todo_view.xml',
+       'security/ir.model.access.csv',
+   ],
+</code></pre>
+
+<p>As before, upgrade the module for these additions to take effect. The warning message should be gone, and you can con rm the permissions are OK by logging in with the user demo (password is also demo) and trying the to-do tasks feature.  </p>
+<h2 id="row-level-access-rules"><a name="user-content-row-level-access-rules" href="#row-level-access-rules" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Row-level access rules 多级别访问规则</h2>
+<p>Odoo is a multi-user system, and we would like the to-do tasks to be private to each user. Fortunately for us, Odoo also supports row-level access rules. In the Technical menu they can be found in the Record Rules option, alongside the Access Control List.  </p>
+<p>Odoo是一个多用系统，我们希望任务清单对每个用户都是私密的。我们非常幸运，Odoo同时支持多级别的访问规则。在技术菜单中，它们可以和“访问控制列表”在一起的“纪录规则”选项中找到。  </p>
+<p>Record rules are defined in the ir.rule model. As usual, we need a distinctive name. We also need the model they operate on and the domain to force access restriction. The domain  lter uses the same domain syntax mentioned before, and used across Odoo.  </p>
+<p>纪录规则被定义在了ir.rule模型中。通常，我们需要一个有差别的名字。我们也需要模型</p>
+<p>Finally, rules may be either global (the global field is set to True) or only for particular security groups. In our case, it could perfectly be a global rule, but to illustrate the most common case, we will make it a group-specific rule, applying only to the employees group.  </p>
+<p>最后，规则可以是全局的（全局字段设置为True）或者只针对特殊的安全组。就我们的这个例子而言，可以完美地执行全局规则，不过为了说明最常见的情况，我们仅对雇员组应用组规则。  </p>
+<p>We should create a security/todo_access_rules.xml file with this content:  </p>
+<p>我们应该创建一个包含以下内容的security/todo_access_rules.xml文件：  </p>
+<pre><code class="xml"> &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+   &lt;openerp&gt;
+     &lt;data noupdate=&quot;1&quot;&gt;
+       &lt;record id=&quot;todo_task_user_rule&quot; model=&quot;ir.rule&quot;&gt;
+           &lt;field name=&quot;name&quot;&gt;ToDo Tasks only for owner&lt;/field&gt;
+           &lt;field name=&quot;model_id&quot; ref=&quot;model_todo_task&quot;/&gt;
+           &lt;field name=&quot;domain_force&quot;&gt;[('create_uid','=',user.id)]
+           &lt;/field&gt;
+           &lt;field name=&quot;groups&quot; eval=&quot;[(4,ref('base.group_user'))]&quot;/&gt;
+       &lt;/record&gt;
+   &lt;/data&gt;
+&lt;/openerp&gt;
+</code></pre>
+
+<p>Notice the noupdate=&rdquo;1&rdquo; attribute. It means this data will not be updated in module upgrades. This will allow it to be customized later, since module upgrades won&rsquo;t destroy user-made changes. But beware that this will also be so while developing, so you might want to set noupdate=&rdquo;0&rdquo; during development, until you&rsquo;re happy with the data file.  </p>
+<p>In the groups  eld, you will also  nd a special expression. It&rsquo;s a one-to-many relational  eld, and they have special syntax to operate with. In this case, the (4, x) tuple indicates to append x to the records, and x is a reference to the employees group, identi ed by base.group_user.  </p>
+<p>As before, we must add the file to <code>__openerp__.py</code> before it can be loaded to the module:  </p>
+<pre><code class="python">'data': [
+       'todo_view.xml',
+       'security/ir.model.access.csv',
+       'security/todo_access_rules.xml',
+   ],
+</code></pre>
+
+<h2 id="adding-an-icon-to-the-module-icon"><a name="user-content-adding-an-icon-to-the-module-icon" href="#adding-an-icon-to-the-module-icon" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Adding an icon to the module 对模块添加一个icon</h2>
+<p>Our module is looking good. Why not add an icon to it to make it look even better? For that we just need to add to the module a static/description/icon.png file with the icon to use.  </p>
+<p>我们的模块看上去还好。那么，为什么不为模块添加一个icon，使它更好看？要实现这个目的，我们只需要为模块添加一个包含要用icon的static/description/icon.png文件。  </p>
+<p>The following commands add an icon copied form the core Notes module:  </p>
+<p>下面的命令添加</p>
+<pre><code class="bash">$ mkdir -p ~/odoo-dev/custom-addons/todo_app/static/description
+$ cd ~/odoo-dev/custom-addons/todo_app/static/description
+$ cp ../odoo/addons/note/static/description/icon.png ./
+</code></pre>
+
+<p>Now, if we update the module list, our module should be displayed with the new icon.  </p>
+<p>现在，若是我们更新模块列表，我们的模块应该可以显示这个新的icon。  </p>
+<h2 id="summary"><a name="user-content-summary" href="#summary" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Summary 总结</h2>
+<p>We created a new module from the start, covering the most frequently used elements in a module: models, the three base types of views (form, list, and search), business logic in model methods, and access security.  </p>
+<p>我们从创建一个新模块开始，</p>
+<p>In the process, you got familiar with the module development process, which involves module upgrades and application server restarts to make the gradual changes effective in Odoo.  </p>
+<p>在此期间，你已经熟悉了模块开发的过程，包括模块升级，以及为了在Odoo中让渐进式变更生效而重启应用服务器。  </p>
+<p>Always remember, when adding model  elds, an upgrade is needed. When changing Python code, including the manifest file, a restart is needed. When changing XML or CSV files, an upgrade is needed; also when in doubt, do both: upgrade the modules and restart the server.<br />
+In the next chapter, you will learn about building modules that stack on existing ones to add features.  </p>
+<p>永远不要忘记，在你添加模型字段时，必须升级模块。当改版Python代码，包括清单文件时，都需要对服务器重启。当变更XML或者CSV文件时，升级也是必须的。你要是有所怀疑的话，可以两个操作都执行：升级模块，然后重启服务器。在下一章，你会学习到如在已存在模块之上构建模块，以添加</p></article></body></html>

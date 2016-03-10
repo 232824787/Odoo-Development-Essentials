@@ -73,7 +73,7 @@ Instead, we should create new modules to be applied on top of the modules we wan
 
 Right now, we will create a completely new module, without extending any existing module, to focus on the different parts and steps involved in module creation. We will just take a brief look at each part, since each will be studied in more detail in the later chapters. Once we are comfortable with creating a new module, we can dive into the inheritance mechanisms, which will be introduced in the next chapter.  
 
-此刻，我们要创建一个完整的新模块，而不是扩展任何已存在的模块，注重模块创建中的不同部分和步骤。我们将简短的浏览每个部分，因为每个部分都会在后面的章节中进行详细学习。一旦我们适应了创建新模块，我们可以深入到会在下一章中引入的继承机制中。  
+现在，我们要创建一个完整的新模块，而不是扩展任何已存在的模块，注重模块创建中的不同部分和步骤。我们将简短的浏览每个部分，因为每个部分都会在后面的章节中进行详细学习。一旦我们适应了创建新模块，我们可以深入到会在下一章中引入的继承机制中。  
 
 ## Creating a new module 创建新模块
 Our module will be a very simple application to keep to-do tasks. These tasks will have
@@ -262,8 +262,11 @@ $ ./odoo.py -d v8dev -u todo_app
 
 The -u option (or --update in the long form) requires the -d option and accepts a comma-separated list of modules to update. For example, we could use:-u todo_app,mail.  
 
+-u选项（或者非简写模式下的--update ）需要-d选项，并接受用逗号分隔的需要更新模块列表。例如，我们可以使用-u todo_app,mail。  
 
 Whenever you need to upgrade work in progress modules throughout the book, the safest way to do so is to go to the terminal window where you have Odoo running, stop the server, and restart it with the command above. Frequently pressing the Up arrow key will be enough, since it should bring you the previous command you used to start the server.  
+
+不论什么时候，
 
 Unfortunately, updating the module list and uninstalling modules are both actions not available through the command line. These have to be done through the web interface, in the Settings menu.  
 
@@ -450,10 +453,12 @@ Odoo支持多种类型的视图，不过只有三中是主要的：列表（也�
 
 All views are stored in the database, in the ir.model.view model. To add a view in a module, we declare a `<record>` element describing the view in an XML file that will be loaded into the database when the module is installed.  
 
-所有的视图都存储在数据库里的ir.model.view模型中。要在一个模块中添加视图，我们
+所有的视图都存储在数据库里的ir.model.view模型中。要在一个模块中添加视图，我们声明了一个在模块安装时会被载入到数据库中的XML文件中的描述视图的`<record>`记录。  
 
 ### Creating a form view 创建一个表单视图
-Edit the XML we just created to add this <record> element just after the <data> opening tag at the top:  
+Edit the XML we just created to add this `<record>` element just after the `<data>` opening tag at the top:  
+
+编辑刚才创建的XML，将`<record>`元素添加到在顶部的`<data>`开放标签之后：  
 
 ```xml
    <record id="view_form_todo_task" model="ir.ui.view">
@@ -469,16 +474,18 @@ Edit the XML we just created to add this <record> element just after the <data> 
    </record>
 ```
 
-This will add a record to the model ir.ui.view with the identi er view_form_ todo_task. The view is for the model todo.task and named To-do Task Form. The name is just for information, does not have to be unique, but should allow one to easily identify what record it refers to.  
+This will add a record to the model `ir.ui.view` with the identifier `view_form_ todo_task`. The view is for the model todo.task and named To-do Task Form. The name is just for information, does not have to be unique, but should allow one to easily identify what record it refers to.  
+
+上面的内容使用标识符`view_form_ todo_task`对模型`ir.ui.view`添加一个记录。todo.task模型的视图被称作 `To-do Task Form`。名称仅是信息而已，没有让名称唯一化的必要，但应该是可以标示出自己在引用什么记录。  
 
 The most important attribute is arch, containing the view definition. Here we say it's a form, and it contains three fields, and we chose to make the active field read only.  
 
 最重要的属性是定义是包含了视图定义的arch。这里我们称它为表单，它包含了三个字段，我们选择让活动字段变为只读。  
 
-### Formatting as a business document 
-The above provides a basic form view, but we can make some improvements to make it nicer. For document models Odoo has a presentation style that mimics a paper page. The form contains two elements: a <head>, containing action buttons, and a <sheet>, containing the data  elds:  
+### Formatting as a business document 为业务文档进行格式化
+The above provides a basic form view, but we can make some improvements to make it nicer. For document models Odoo has a presentation style that mimics a paper page. The form contains two elements: a `<head>`, containing action buttons, and a `<sheet>`, containing the data fields:  
 
-上面提供了一个基本的表单视图，不过我们可以做出一些改进，让它显示更为友好。
+上面提供了一个基本的表单视图，不过我们可以做出一些改进，让它显示更为友好。关于文档模型Odoo使用的是一个仿纸质页面的表现风格。表单包含了两个元素：包含动作按钮的`<head>`，以及包含数据字段的`<sheet>`：  
 
 ```xml
    <form>
@@ -496,7 +503,7 @@ The above provides a basic form view, but we can make some improvements to make 
 ### Adding action buttons 添加动作按钮
 Forms can have buttons to run actions. These are able to trigger work ow actions, run Window Actions, such as opening another form, or run Python functions defined in the model.  
 
-表单可以拥有运行动作的按钮。这些表能够触发工作流动作，运行Window动作，比如打开另外一个表单，或者是运行定义在模型中的函数：  
+表单可以拥有运行动作的按钮。这些按钮能够触发工作流动作，运行Window动作，比如打开另外一个表单，或者是运行定义在模型中的函数：  
 
 They can be placed anywhere inside a form, but for document-style forms, the recommended place for them is the `<header>` section.  
 
@@ -504,7 +511,7 @@ They can be placed anywhere inside a form, but for document-style forms, the rec
 
 For our application, we will add two buttons to run methods of the `todo.task` model:  
 
-对于我们的应用而言，我们需要田间两个按钮以运行`todo.task`模型的方法：  
+对于我们的应用而言，我们需要添加两个按钮以运行`todo.task`模型的方法：  
 
 ```html
    <header>
@@ -517,18 +524,17 @@ For our application, we will add two buttons to run methods of the `todo.task` m
 
 The basic attributes for a button are: string with the text to display on the button, the type of action it performs, and the name that is the identifier for that action. The optional class attribute can apply CSS styles, just like in regular HTML. 
 
-按钮的基本属性是：含有文本的字符串用会显示在按钮上，
+按钮的基本属性是：含有文本的string会显示在按钮上————按钮要执行的动作类型，name用做动作的标识。可选的class属性合普通HTML一样可以应用CSS样式。  
 
 ### Organizing forms using groups 利用group来组织表单
 The `<group>` tag allows organizing the form content. Placing `<group>` elements inside a `<group>` element creates a two column layout inside the outer group. Group elements are advised to have a name to make it easier for other modules to extend on them.  
 
-`<group>`标签能够过组织表单内容。将`<group>`元素放倒一个`<group>` 元素中可以在外部的group创建一个两列的布局。组元素
+`<group>`标签能够过组织表单内容。将`<group>`元素放倒一个`<group>` 元素中可以在外部的group中创建一个两列的布局。建议group元素包含一个能够过让其它模块能够在自身基础上进行相对容易的扩展。  
 
-`<group>` 标签可以组织表单内容。
 
-We will use this to better organize our content. Let's change the <sheet> content of our form to match this:  
+We will use this to better organize our content. Let's change the `<sheet>` content of our form to match this:  
 
-我们使用group来更好地组织内容。我们来变更表单的`<sheet>`内容以符合以下内容：  
+我们使用group来更好地组织内容。我们来变更表单的`<sheet>`内容以匹配以下内容：  
 
 ```xml
      <sheet>
@@ -547,7 +553,7 @@ We will use this to better organize our content. Let's change the <sheet> conten
 ### The complete form view 完整的表单视图
 At this point, our record in todo_view.xml for the todo.task form view should look like this:  
 
-站在这个角度来说，用于todo.task的todo_view.xml的记录
+站在这个角度来说，用于todo.task表单视图的todo_view.xml的中的记录，应该是这个样子：  
 
 ```xml
 <record id="view_form_todo_task" model="ir.ui.view">
@@ -580,7 +586,7 @@ At this point, our record in todo_view.xml for the todo.task form view should lo
 
 Remember that for the changes to be loaded into our Odoo database, a module upgrade is needed. To see the changes in the web client, the form needs to be reloaded: either click again on the menu option that opens it, or reload the browser page (F5 in most browsers).  
 
-记住，变更载入到Odoo数据库中，模块也应该升级。为了在web客户端浏览变更，表单需要重新载入：在此点击打开的菜单选项，或者是重新加载页面（多数浏览器使用的是F5）。  
+记住，如果要将变更载入到Odoo数据库中，模块也应该升级。为了在web客户端浏览变更，表单需要重新载入：在此点击打开的菜单选项，或者是重新加载页面（多数浏览器使用的是F5）。  
 
 Now, let's add the business logic for the actions buttons.  
 
@@ -591,9 +597,9 @@ When viewing a model in list mode, a `<tree>` view is used. Tree views are capab
 
 当在列表模式浏览一个模型时，使用的是`<tree>`视图。树形视图在分层结构中能够兼容又组织结构的显示行，不过很多时候它们被用来显示普通列表。  
 
-We can add the following tree view definition to todo_view.xml:  
+We can add the following tree view definition to `todo_view.xml`:  
 
-我们可以添加下面的的树形视图定义到todo_view.xml：  
+我们可以添加下面的的树形视图定义到`todo_view.xml`：  
 
 ```xml
 <record id="view_tree_todo_task" model="ir.ui.view">
@@ -610,7 +616,7 @@ We can add the following tree view definition to todo_view.xml:
 
 We have defined a list with only two columns, name and is_done. We also added a nice touch: the lines for done tasks (is_done==True) are shown in grey.  
 
-我们定义了一个仅有两个列（name和is_done）的列表。我们也可以添加一个不错的：完成任务的行（is_done==True）会显示为灰色。  
+我们定义了一个仅有两个列（name和is_done）的列表。我们也可以添加一个好看的按钮：完成任务的行（｀is_done==True｀）会显示为灰色。  
 
 At the top right of the list Odoo displays a search box. The default fields it searches for and available predefined filters can be defined by a `<search>` view.  
 
@@ -636,27 +642,26 @@ As before, we will add this to the todo_view.xml:
    </record>
 ```
 
-The <field> elements define fields that are also searched when typing in the search box. The `<filter>` elements add predefined filter conditions, using domain syntax that can be selected with a user click.  
+The `<field>` elements define fields that are also searched when typing in the search box. The `<filter>` elements add predefined filter conditions, using domain syntax that can be selected with a user click.  
 
-`<field>`元素定义了在搜索框中进行输入时可以被搜索的定义字段。
+`<field>`元素定义了在搜索框中进行输入时可以被搜索的定义字段。`<filter>`元素添加之前定义过的过滤器条件，域语法的选择在用户点击时进行选择。  
 
 ## Adding business logic  添加业务逻辑
-Now we will add some logic to our buttons. Edit the todo_model.py Python file to add to the class the methods called by the buttons.
-We will use the new API introduced in Odoo 8.0. For backward compatibility, by default Odoo expects the old API, and to create methods using the new API we need to use Python decorators on them. First we need to import the new API, so add it to the import statement at the top of the Python file:  
+Now we will add some logic to our buttons. Edit the todo_model.py Python file to add to the class the methods called by the buttons. We will use the new API introduced in Odoo 8.0. For backward compatibility, by default Odoo expects the old API, and to create methods using the new API we need to use Python decorators on them. First we need to import the new API, so add it to the import statement at the top of the Python file:  
 
-现在，我们要给按钮添加一些逻辑。编辑Python文件todo_model.py，然后可以被按钮调用的类方法。我们使用在Odoo 8.0中引入的新API。考虑到向后兼容性，默认Odoo使用的是旧版本的API，要创建使用新API的方法，我们需要对定义的方法使用Python装饰器。首先我们需要导入新API，
+现在，我们要给按钮添加一些逻辑。编辑Python文件todo_model.py，然后添加可以被按钮调用的类方法。我们使用在Odoo 8.0中引入的新API。考虑到向后兼容性，默认Odoo使用的是旧版本的API，要创建使用新API的方法，我们需要对定义的方法使用Python装饰器。首先我们需要导入新API，
 
 ```python
 from openerp import models, fields, api
 ```
 
-The **Toggle Done**  button's action will be very simple: just toggle the Is Done?  ag. For logic on a record, the simplest approach is to use the @api.one decorator. Here self will represent one record. If the action was called for a set of records, the API would handle that and trigger this method for each of the records.  
+The **Toggle Done**  button's action will be very simple: just toggle the Is Done?  ag. For logic on a record, the simplest approach is to use the `@api.one` decorator. Here self will represent one record. If the action was called for a set of records, the API would handle that and trigger this method for each of the records.  
 
-Toggle Done按钮的动作非常简单：
+Toggle Done按钮的动作非常简单：切换是否完成？对于一条记录的逻辑来说，最简单的方法是使用装饰器`@api.one`。这里self表示的是一条记录。如果动作被一组记录调用，API就可以处理这样的调用，然后喂每一条记录出发这个方法。  
 
 Inside the TodoTask class add:  
 
-在TodoTask类内部天际以下内容：  
+在TodoTask类内部添加以下内容：  
 
 ```python
 @api.one
@@ -669,9 +674,13 @@ As you can see, it simply modifies the is_done field, inverting its value. Metho
 
 如你所见，上面的方法简单的修改了is_done字段，并转换了该字段值。然后，方法就能够从客户端调用了，而且方法必须有返回的内容。如果，方法返回了None，那么使用XMLRPC协议的客户端调用就不会正常工作。如果我们没有需要返回的东西，常见的做法是返回真值。  
 
-After this, if we restart the Odoo server to reload the Python  le, the Toggle Done button should now work.  
+After this, if we restart the Odoo server to reload the Python file, the Toggle Done button should now work.  
+
+这样做之后，如果我们重启Odoo服务器来读取Python文件，现在，Toggle Done这个按钮就可以使用了。  
 
 For the **Clear All Done** button we want to go a little further. It should look for all active records that are done, and make them inactive. Form buttons are supposed to act only on the selected record, but to keep things simple we will do some cheating, and it will also act on records other than the current one:  
+
+对于**Clear All Done**按钮我们想做的更近一步。它应该能够查询所有已完成的活动记录，而且能够将这些记录标记为不活动。表单按钮被假设为仅与被选择的记录交互，但是，简单起见，我们就偷懒一点儿，它也可以和其它的记录交互，而仅仅是当前的记录：  
 
 ```python
  @api.multi
@@ -682,13 +691,21 @@ For the **Clear All Done** button we want to go a little further. It should look
 ```
 
 
-On methods decorated with @api.multi the self represents a recordset. It can contain a single record, when used from a form, or several records, when used from a list view. We will ignore the self recordset and build our own done_recs recordset containing all the tasks that are marked as done. Then we set the active  ag to False, in all of them.  
+On methods decorated with @api.multi the self represents a recordset. It can contain a single record, when used from a form, or several records, when used from a list view. We will ignore the self recordset and build our own done_recs recordset containing all the tasks that are marked as done. Then we set the active flag to False, in all of them.  
+
+被@api.multi所装饰的方法的self表示一个记录集。在它被表单调用时，它可以包含一个单记录，或者是从列表视图调用时，包含多个记录。我们会忽略self的记录集，然后构建我们自己的包含了所有被标记为done的任务的记录集done_recs。接着，我们将记录集中的全部活动旗帜都设置为False。  
 
 The search is an API method returning the records meeting some conditions. These conditions are written in a domain, that is a list of triplets. We'll explore domains in more detail later.  
 
-The write method sets values at once on all elements of the recordset. The values to write are described using a dictionary. Using write here is more ef cient than iterating through the recordset to assign the value to them one by one.  
+search是一个返回匹配指定条件的记录集的API方法。这些条件被写在一个域中，即一个三元素的列表。稍后我们会学习域的更多细节。  
 
-Note that `@api.one` is not the most ef cient for these actions, since it will run for each selected record. The @api.multi ensures that our code runs only once even if there is more than one record selected when running the action. This could happen if an option for it were to be added on the list view.  
+The write method sets values at once on all elements of the recordset. The values to write are described using a dictionary. Using write here is more efficient than iterating through the recordset to assign the value to them one by one.  
+
+write方法一次性对记录的所有元素进行赋值。被写入的值使用字典来表示。这里使用write相比迭代整个记录再一个接一个的赋值效率更高。  
+
+Note that `@api.one` is not the most efficient for these actions, since it will run for each selected record. The `@api.multi` ensures that our code runs only once even if there is more than one record selected when running the action. This could happen if an option for it were to be added on the list view.  
+
+注意，对于这些动作来说`@api.one`并不是最有效率的，因为，它会执行每一条被选择记录。`@api.multi`可以保证我们的代码只运行一次，即便是再执行动作时存在多条被选择的记录。这样的事情在选项被添加到列表视图时可能就会发生。  
 
 ## Setting up access control security 设置访问控制安全
 You might have noticed, upon loading our module is getting a warning message in the server log: **The model todo.task has no access rules, consider adding one**.  
@@ -714,12 +731,12 @@ lines into the ir.model.access model. We will add full access on the model to th
 
 这些信息应由模块来提供，使用数据模型以载入行到ir.model.access模型。我们会给雇员组添加完整的访问权限。雇员是一个基本的访问组，几乎所有人都在其中。  
 
-This is usually done using a CSV file named security/ir.model.access.csv. Models have automatically generated identi ers: for todo.task the identi er is model_todo_task. Groups also have identi ers set by the modules creating them. The employee group is created by the base module and has identi er base.group_user. The line's name is only informative and it's best if it's kept unique. Core modules usually use a dot-separated string with the model name and the group. Following this convention we would use todo.task.user.  
+This is usually done using a CSV file named security/ir.model.access.csv. Models have automatically generated identi ers: for todo.task the identifier is model_todo_task. Groups also have identifiers set by the modules creating them. The employee group is created by the base module and has identifier base.group_user. The line's name is only informative and it's best if it's kept unique. Core modules usually use a dot-separated string with the model name and the group. Following this convention we would use todo.task.user.  
 
+我们通常使用一个名称为security/ir.model.access.csv的CSV文件来完成操作。模型已经自动地生成了标识符：todo.task的标识符是model_todo_task。组通过创建自己的模块来设置标识符。employee组是由base模块创建，并拥有标识符base.group_user。行的名称是唯一提高信息的地方，所以你最好将名称唯一化。核型模块通常使用点号分隔的模型名和组。为了遵循这个约定我们接下来使用todo.task.user。  
+Now we have everything we need to know, let's add the new file with the following content:  
 
-
-Now we have everything we need to know, let's add the new file with the
-following content:  
+现在，我们已经了解了所有需要了解的事情，接着将以下内容写入到新文件：  
 
 ```
    id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_
@@ -730,6 +747,8 @@ following content:
 
 We must not forget to add the reference to this new  le in the `__openerp__.py` descriptor's data attribute, so that should look like this:  
 
+我们一定不能忘记在描述符`__openerp__.py`的数据属性中应用这个新文件，所以添加了引用的`__openerp__.py`文件是这个样子的：  
+
 ```python
    'data': [
        'todo_view.xml',
@@ -738,6 +757,8 @@ We must not forget to add the reference to this new  le in the `__openerp__.py` 
 ```
 
 As before, upgrade the module for these additions to take effect. The warning message should be gone, and you can con rm the permissions are OK by logging in with the user demo (password is also demo) and trying the to-do tasks feature.  
+
+和之前一样，为了使这些变更生效你需要为这些附加的属性升级模块。这样操作之后，警告消息应该就看不到了，你可以同使用用户demo（密码也是demo）登录来检查权限，同时也可以体验to－do的应用功能。  
 
 ## Row-level access rules 多级别访问规则
 Odoo is a multi-user system, and we would like the to-do tasks to be private to each user. Fortunately for us, Odoo also supports row-level access rules. In the Technical menu they can be found in the Record Rules option, alongside the Access Control List.  
