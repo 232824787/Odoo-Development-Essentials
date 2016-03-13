@@ -6,6 +6,8 @@
 
 # 第二章 Building Your First Odoo Application
 ************
+# 第二章 Building Your First Odoo Application
+************
 
 Developing in Odoo most of the time means creating our own modules. In this
 chapter, we will create our first Odoo application, and you will learn the steps
@@ -661,7 +663,7 @@ Now we will add some logic to our buttons. Edit the todo_model.py Python file to
 from openerp import models, fields, api
 ```
 
-The **Toggle Done**  button's action will be very simple: just toggle the Is Done?  ag. For logic on a record, the simplest approach is to use the `@api.one` decorator. Here self will represent one record. If the action was called for a set of records, the API would handle that and trigger this method for each of the records.  
+The **Toggle Done**  button's action will be very simple: just toggle the Is Done? flag. For logic on a record, the simplest approach is to use the `@api.one` decorator. Here self will represent one record. If the action was called for a set of records, the API would handle that and trigger this method for each of the records.  
 
 Toggle Done按钮的动作非常简单：切换是否完成？对于一条记录的逻辑来说，最简单的方法是使用装饰器`@api.one`。这里self表示的是一条记录。如果动作被一组记录调用，API就可以处理这样的调用，然后喂每一条记录出发这个方法。  
 
@@ -769,11 +771,11 @@ As before, upgrade the module for these additions to take effect. The warning me
 ## Row-level access rules 多级别访问规则
 Odoo is a multi-user system, and we would like the to-do tasks to be private to each user. Fortunately for us, Odoo also supports row-level access rules. In the Technical menu they can be found in the Record Rules option, alongside the Access Control List.  
 
-Odoo是一个多用系统，我们希望任务清单对每个用户都是私密的。我们非常幸运，Odoo同时支持多级别的访问规则。在技术菜单中，它们可以和“访问控制列表”在一起的“纪录规则”选项中找到。  
+Odoo是一个多用户系统，我们希望任务清单对每个用户都是私密的。非常幸运的是Odoo同时支持多级别的访问规则。在技术菜单中，它们可以和“访问控制列表”在一起的“纪录规则”选项中找到。  
 
-Record rules are defined in the ir.rule model. As usual, we need a distinctive name. We also need the model they operate on and the domain to force access restriction. The domain  lter uses the same domain syntax mentioned before, and used across Odoo.  
+Record rules are defined in the `ir.rule model`. As usual, we need a distinctive name. We also need the model they operate on and the domain to force access restriction. The domain filter uses the same domain syntax mentioned before, and used across Odoo.  
 
-纪录规则被定义在了ir.rule模型中。通常，我们需要一个有差别的名字。我们也需要模型
+纪录规则被定义在了ir.rule模型中。通常，我们需要一个不同的名字。我们也需要模型可以操作，域强制执行访问限制。域了过滤器使用之前提到过的域语法，而且是在整个Odoo中都是如此使用。  
 
 Finally, rules may be either global (the global field is set to True) or only for particular security groups. In our case, it could perfectly be a global rule, but to illustrate the most common case, we will make it a group-specific rule, applying only to the employees group.  
 
@@ -800,9 +802,15 @@ We should create a security/todo_access_rules.xml file with this content:
 
 Notice the noupdate="1" attribute. It means this data will not be updated in module upgrades. This will allow it to be customized later, since module upgrades won't destroy user-made changes. But beware that this will also be so while developing, so you might want to set noupdate="0" during development, until you're happy with the data file.  
 
-In the groups  eld, you will also  nd a special expression. It's a one-to-many relational  eld, and they have special syntax to operate with. In this case, the (4, x) tuple indicates to append x to the records, and x is a reference to the employees group, identi ed by base.group_user.  
+注意属性noupdate="1"。它的意思是该数据在模块升级时不会被更新。这个属性可以在后面自定义，因为模块的升级不会摧毁由用户产生的变更。而且在在开发时也确实会发生这样的事情，所以你可以在开发时设置noupdate="0"，直到你希望使用数据文件为止。  
+
+In the groups field, you will also find a special expression. It's a one-to-many relational field, and they have special syntax to operate with. In this case, the (4, x) tuple indicates to append x to the records, and x is a reference to the employees group, identified by base.group_user.  
+
+在group字段，你也会发现一个特殊的表达式。它是一个一对多关系字段，有特殊的语法来操作它们。本例中，(4, x)元组表示将x追加到记录，而且x是一个到通过base.group_user来识别的雇员组的引用。   
 
 As before, we must add the file to `__openerp__.py` before it can be loaded to the module:  
+
+就像之前那样，我们必须在`__openerp__.py`被载入到模块之前，对`__openerp__.py`添加规则文件：  
 
 ```python
 'data': [
@@ -815,11 +823,11 @@ As before, we must add the file to `__openerp__.py` before it can be loaded to t
 ## Adding an icon to the module 对模块添加一个icon
 Our module is looking good. Why not add an icon to it to make it look even better? For that we just need to add to the module a static/description/icon.png file with the icon to use.  
 
-我们的模块看上去还好。那么，为什么不为模块添加一个icon，使它更好看？要实现这个目的，我们只需要为模块添加一个包含要用icon的static/description/icon.png文件。  
+我们的模块看上去还好。那么，为什么不为模块添加一个图标，使它更好看？要实现这个目的，我们只需要为模块添加一个包含要用icon的static/description/icon.png文件。  
 
-The following commands add an icon copied form the core Notes module:  
+The following commands add an icon copied form the core *Notes* module:  
 
-下面的命令添加
+下面的命令添加了一个来自*Notes*模块的图标副本：  
 
 ```bash
 $ mkdir -p ~/odoo-dev/custom-addons/todo_app/static/description
@@ -829,18 +837,21 @@ $ cp ../odoo/addons/note/static/description/icon.png ./
 
 Now, if we update the module list, our module should be displayed with the new icon.  
 
-现在，若是我们更新模块列表，我们的模块应该可以显示这个新的icon。  
+现在，若是我们更新模块列表，我们的模块应该可以显示这个新的图标。  
 
 ## Summary 总结
 We created a new module from the start, covering the most frequently used elements in a module: models, the three base types of views (form, list, and search), business logic in model methods, and access security.  
 
-我们从创建一个新模块开始，
+我们从创建一个新模块开始，并且覆盖了在模块中最常使用的元素：模型，视图的的三个基本类型（表单、列表、和搜索），模型方法中的业务逻辑，以及访问安全。  
 
 In the process, you got familiar with the module development process, which involves module upgrades and application server restarts to make the gradual changes effective in Odoo.  
 
 在此期间，你已经熟悉了模块开发的过程，包括模块升级，以及为了在Odoo中让渐进式变更生效而重启应用服务器。  
 
-Always remember, when adding model  elds, an upgrade is needed. When changing Python code, including the manifest file, a restart is needed. When changing XML or CSV files, an upgrade is needed; also when in doubt, do both: upgrade the modules and restart the server.
+Always remember, when adding model  elds, an upgrade is needed. When changing Python code, including the manifest file, a restart is needed. When changing XML or CSV files, an upgrade is needed; also when in doubt, do both: upgrade the modules and restart the server.  
+
+永远不要忘记，在你添加模型字段时，必须升级模块。当改版Python代码，包括清单文件时，都需要对服务器重启。当变更XML或者CSV文件时，升级也是必须的。你要是有所怀疑的话，可以两个操作都执行：升级模块，然后重启服务器。
+
 In the next chapter, you will learn about building modules that stack on existing ones to add features.  
 
-永远不要忘记，在你添加模型字段时，必须升级模块。当改版Python代码，包括清单文件时，都需要对服务器重启。当变更XML或者CSV文件时，升级也是必须的。你要是有所怀疑的话，可以两个操作都执行：升级模块，然后重启服务器。在下一章，你会学习到如在已存在模块之上构建模块，以添加
+在下一章，你会学习到如在已存在模块之上构建模块，以添加新功能。  
