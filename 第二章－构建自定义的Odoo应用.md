@@ -405,7 +405,7 @@ The XML file is a data file used to load those definitions into the database whe
 - The `<menuitem>` defines a menu item under the Messaging menu (identified by `mail.mail_feeds`), calling the `action_todo_task` action, which was defined before. The sequence lets us set the order of the
 menu options.  
 
-- `<act_window>`定义元素定义了用户“窗口动作”，一打开定义在Python文件中的todo.task模型，同时按照顺序启用了tree和form视图。  
+- `<act_window>`定义元素定义了用户“窗口动作”，以打开定义在Python文件中的todo.task模型，同时按照顺序启用了tree和form视图。  
 - `<menuitem>`定义了“消息”菜单（通过`mail.mail_feeds`识别）下面的一个菜单选项，它调用的是上面定义的`action_todo_task` 动作。sequence让我们设置菜单选项的顺序。  
 
 Now we need to tell the module to use the new XML data file. That is done in the `__openerp__.py` file using the data attribute. It defines the list of  les to be loaded by the module. Add this attribute to the descriptor's dictionary:  
@@ -430,7 +430,7 @@ Views should be defined for models to be exposed to the users, but Odoo is nice
 enough to do that automatically if we don't, so we can work with our model right
 away, without having any form or list views defined yet.  
 
-视图是为需要暴露给用户的模型而定义的，不过，要是我们不去做话，Odoo也会自动地来帮助我们实现视图，所以我们可以马上使用模型，而不用去定义面前还没定义的表单视图或者列表视图。  
+视图是为了需要暴露给用户的模型而定义的，不过，要是我们不去做的话，Odoo也会自动地来帮助我们实现视图，所以我们可以马上使用模型，而不用去定义面前还没定义的表单视图或者列表视图。  
 
 So far, so good! Let's improve our user interface now. Try the gradual improvements as shown in the next sections, doing frequent module upgrades, and don't be afraid to experiment.  
 
@@ -453,7 +453,7 @@ Odoo支持多种类型的视图，不过只有三中是主要的：列表（也�
 
 All views are stored in the database, in the ir.model.view model. To add a view in a module, we declare a `<record>` element describing the view in an XML file that will be loaded into the database when the module is installed.  
 
-所有的视图都存储在数据库里的ir.model.view模型中。要在一个模块中添加视图，我们声明了一个在模块安装时会被载入到数据库中的XML文件中的描述视图的`<record>`记录。  
+所有的视图都存储在数据库里的ir.model.view模型中。在一个模块中添加视图，我们要声明一个在模块安装时会被载入到数据库中的XML文件中的描述视图的`<record>`记录。  
 
 ### Creating a form view 创建一个表单视图
 Edit the XML we just created to add this `<record>` element just after the `<data>` opening tag at the top:  
@@ -476,7 +476,7 @@ Edit the XML we just created to add this `<record>` element just after the `<dat
 
 This will add a record to the model `ir.ui.view` with the identifier `view_form_ todo_task`. The view is for the model todo.task and named To-do Task Form. The name is just for information, does not have to be unique, but should allow one to easily identify what record it refers to.  
 
-上面的内容使用标识符`view_form_ todo_task`对模型`ir.ui.view`添加一个记录。todo.task模型的视图被称作 `To-do Task Form`。名称仅是信息而已，没有让名称唯一化的必要，但应该是可以标示出自己在引用什么记录。  
+上面的内容使用标识符`view_form_todo_task`对模型`ir.ui.view`添加一个记录。todo.task模型的视图被称作 `To-do Task Form`。名称仅是信息而已，没有让名称唯一化的必要，但应该是可以标示出自己在引用什么记录。  
 
 The most important attribute is arch, containing the view definition. Here we say it's a form, and it contains three fields, and we chose to make the active field read only.  
 
@@ -524,7 +524,7 @@ For our application, we will add two buttons to run methods of the `todo.task` m
 
 The basic attributes for a button are: string with the text to display on the button, the type of action it performs, and the name that is the identifier for that action. The optional class attribute can apply CSS styles, just like in regular HTML. 
 
-按钮的基本属性是：含有文本的string会显示在按钮上————按钮要执行的动作类型，name用做动作的标识。可选的class属性合普通HTML一样可以应用CSS样式。  
+按钮的基本属性是：含有文本的字符串会显示在按钮上————按钮要执行的动作类型，name用做动作的标识。可选的class属性合普通HTML一样可以应用CSS样式。  
 
 ### Organizing forms using groups 利用group来组织表单
 The `<group>` tag allows organizing the form content. Placing `<group>` elements inside a `<group>` element creates a two column layout inside the outer group. Group elements are advised to have a name to make it easier for other modules to extend on them.  
@@ -553,7 +553,7 @@ We will use this to better organize our content. Let's change the `<sheet>` cont
 ### The complete form view 完整的表单视图
 At this point, our record in todo_view.xml for the todo.task form view should look like this:  
 
-站在这个角度来说，用于todo.task表单视图的todo_view.xml的中的记录，应该是这个样子：  
+现在，todo.task表单视图的todo_view.xml的中的记录，应该是这个样子：  
 
 ```xml
 <record id="view_form_todo_task" model="ir.ui.view">
@@ -657,7 +657,7 @@ from openerp import models, fields, api
 
 The **Toggle Done**  button's action will be very simple: just toggle the Is Done? flag. For logic on a record, the simplest approach is to use the `@api.one` decorator. Here self will represent one record. If the action was called for a set of records, the API would handle that and trigger this method for each of the records.  
 
-Toggle Done按钮的动作非常简单：切换是否完成？对于一条记录的逻辑来说，最简单的方法是使用装饰器`@api.one`。这里self表示的是一条记录。如果动作被一组记录调用，API就可以处理这样的调用，然后喂每一条记录出发这个方法。  
+Toggle Done按钮的动作非常简单：应用`切换是否完成？`旗标。对于一条记录的逻辑来说，最简单的方法是使用装饰器`@api.one`。这里self表示的是一条记录。如果动作被一组记录调用，API就可以处理这样的调用，然后喂每一条记录出发这个方法。  
 
 Inside the TodoTask class add:  
 
@@ -670,9 +670,9 @@ Inside the TodoTask class add:
        return True
 ```
 
-As you can see, it simply modifies the is_done field, inverting its value. Methods, then, can be called from the client side and must always return something. If they return None, client calls using the XMLRPC protocol won't work. If we have nothing to return, the common practice is to just return the True value.  
+As you can see, it simply modifies the `is_done` field, inverting its value. Methods, then, can be called from the client side and must always return something. If they return None, client calls using the XMLRPC protocol won't work. If we have nothing to return, the common practice is to just return the True value.  
 
-如你所见，上面的方法简单的修改了is_done字段，并转换了该字段值。然后，方法就能够从客户端调用了，而且方法必须有返回的内容。如果，方法返回了None，那么使用XMLRPC协议的客户端调用就不会正常工作。如果我们没有需要返回的东西，常见的做法是返回真值。  
+如你所见，上面的方法简单的修改了`is_done`字段，并转换了该字段的值。然后，方法就能够从客户端调用了，而且方法必须一直会有内容返回。如果，方法返回了None，那么使用XMLRPC协议的客户端调用就不会正常工作。如果我们没有需要返回的东西，常见的做法是返回真值。  
 
 After this, if we restart the Odoo server to reload the Python file, the Toggle Done button should now work.  
 
@@ -680,7 +680,7 @@ After this, if we restart the Odoo server to reload the Python file, the Toggle 
 
 For the **Clear All Done** button we want to go a little further. It should look for all active records that are done, and make them inactive. Form buttons are supposed to act only on the selected record, but to keep things simple we will do some cheating, and it will also act on records other than the current one:  
 
-对于**Clear All Done**按钮我们想做的更近一步。它应该能够查询所有已完成的活动记录，而且能够将这些记录标记为不活动。表单按钮被假设为仅与被选择的记录交互，但是，简单起见，我们就偷懒一点儿，它也可以和其它的记录交互，而仅仅是当前的记录：  
+对于**Clear All Done**按钮我们想做的更近一步。它能够查询所有已完成的活动记录，而且能够将这些记录标记为不活动。表单按钮被假设为仅与被选择的记录交互，但是，简单起见，我们就偷懒一点儿，它也可以和其它的记录交互，而仅仅是当前的记录：  
 
 ```python
  @api.multi
@@ -691,9 +691,9 @@ For the **Clear All Done** button we want to go a little further. It should look
 ```
 
 
-On methods decorated with @api.multi the self represents a recordset. It can contain a single record, when used from a form, or several records, when used from a list view. We will ignore the self recordset and build our own done_recs recordset containing all the tasks that are marked as done. Then we set the active flag to False, in all of them.  
+On methods decorated with `@api.multi` the self represents a recordset. It can contain a single record, when used from a form, or several records, when used from a list view. We will ignore the self recordset and build our own done_recs recordset containing all the tasks that are marked as done. Then we set the active flag to False, in all of them.  
 
-被@api.multi所装饰的方法的self表示一个记录集。在它被表单调用时，它可以包含一个单记录，或者是从列表视图调用时，包含多个记录。我们会忽略self的记录集，然后构建我们自己的包含了所有被标记为done的任务的记录集done_recs。接着，我们将记录集中的全部活动旗帜都设置为False。  
+被`@api.multi`所装饰的方法的self表示一个记录集。在它被表单调用时，它可以包含一个单记录，或者是从列表视图调用时，包含多个记录。我们会忽略self的记录集，然后构建我们自己的包含了所有被标记为done的任务的记录集done_recs。接着，我们将记录集中的全部活动旗帜都设置为False。  
 
 The search is an API method returning the records meeting some conditions. These conditions are written in a domain, that is a list of triplets. We'll explore domains in more detail later.  
 
@@ -724,16 +724,17 @@ img:omit
 
 Here we can see the ACL for the mail.mail model. It indicates, per group, what actions are allowed on records.  
 
-这里我们可以看到mail.mail模型的ACL。说明了，每一个组对记录都有什么动作可以执行。  
+这里我们可以看到mail.mail模型的ACL。它说明了，每一个组对记录都有什么动作可以执行。  
 
 This information needs to be provided by the module, using a data file to load the
 lines into the ir.model.access model. We will add full access on the model to the employee group. Employee is the basic access group nearly everyone belongs to.  
 
 这些信息应由模块来提供，使用数据模型以载入行到ir.model.access模型。我们会给雇员组添加完整的访问权限。雇员是一个基本的访问组，几乎所有人都在其中。  
 
-This is usually done using a CSV file named security/ir.model.access.csv. Models have automatically generated identi ers: for todo.task the identifier is model_todo_task. Groups also have identifiers set by the modules creating them. The employee group is created by the base module and has identifier base.group_user. The line's name is only informative and it's best if it's kept unique. Core modules usually use a dot-separated string with the model name and the group. Following this convention we would use todo.task.user.  
+This is usually done using a CSV file named `security/ir.model.access.csv`. Models have automatically generated identi ers: for `todo.task` the identifier is `model_todo_task`. Groups also have identifiers set by the modules creating them. The employee group is created by the base module and has identifier `base.group_user`. The line's name is only informative and it's best if it's kept unique. Core modules usually use a dot-separated string with the model name and the group. Following this convention we would use `todo.task.user`.  
 
-我们通常使用一个名称为security/ir.model.access.csv的CSV文件来完成操作。模型已经自动地生成了标识符：todo.task的标识符是model_todo_task。组通过创建自己的模块来设置标识符。employee组是由base模块创建，并拥有标识符base.group_user。行的名称是唯一提高信息的地方，所以你最好将名称唯一化。核型模块通常使用点号分隔的模型名和组。为了遵循这个约定我们接下来使用todo.task.user。  
+我们通常使用一个名称为`security/ir.model.access.csv`的CSV文件来完成操作。模型已经自动地生成了标识符：`todo.task`的标识符是`model_todo_task`。组还拥有由模块在创建组时所设置的标识符。employee组是由base模块创建，并拥有标识符`base.group_user`。行的名称是唯一提供信息的地方，所以你最好将名称唯一化。核心模块通常使用点号分隔的模型名和组。为了遵循这个约定我们接下来使用`todo.task.user`。  
+
 Now we have everything we need to know, let's add the new file with the following content:  
 
 现在，我们已经了解了所有需要了解的事情，接着将以下内容写入到新文件：  
@@ -794,11 +795,11 @@ We should create a security/todo_access_rules.xml file with this content:
 
 Notice the noupdate="1" attribute. It means this data will not be updated in module upgrades. This will allow it to be customized later, since module upgrades won't destroy user-made changes. But beware that this will also be so while developing, so you might want to set noupdate="0" during development, until you're happy with the data file.  
 
-注意属性noupdate="1"。它的意思是该数据在模块升级时不会被更新。这个属性可以在后面自定义，因为模块的升级不会摧毁由用户产生的变更。而且在在开发时也确实会发生这样的事情，所以你可以在开发时设置noupdate="0"，直到你希望使用数据文件为止。  
+注意属性noupdate="1"。它的意思是该数据在模块升级时不会被更新。这个属性可以在后面自定义，因为模块的升级不会摧毁由用户产生的变更。你要小心，而且在开发时也确实会发生这样的事情，所以你可以在开发时设置noupdate="0"，直到你希望使用数据文件为止。  
 
-In the groups field, you will also find a special expression. It's a one-to-many relational field, and they have special syntax to operate with. In this case, the (4, x) tuple indicates to append x to the records, and x is a reference to the employees group, identified by base.group_user.  
+In the groups field, you will also find a special expression. It's a one-to-many relational field, and they have special syntax to operate with. In this case, the `(4, x)` tuple indicates to append x to the records, and x is a reference to the employees group, identified by base.group_user.  
 
-在group字段，你也会发现一个特殊的表达式。它是一个一对多关系字段，有特殊的语法来操作它们。本例中，(4, x)元组表示将x追加到记录，而且x是一个到通过base.group_user来识别的雇员组的引用。   
+在group字段，你也会发现一个特殊的表达式。它是一个一对多关系字段，有特殊的语法来操作它们。本例中，`(4, x)`元组表示将`x`追加到记录，而且`x`是一个到通过base.group_user来识别的雇员组的引用。   
 
 As before, we must add the file to `__openerp__.py` before it can be loaded to the module:  
 
@@ -812,7 +813,7 @@ As before, we must add the file to `__openerp__.py` before it can be loaded to t
    ],
 ```
 
-## Adding an icon to the module 对模块添加一个icon
+## Adding an icon to the module 对模块添加一个图标
 Our module is looking good. Why not add an icon to it to make it look even better? For that we just need to add to the module a static/description/icon.png file with the icon to use.  
 
 我们的模块看上去还好。那么，为什么不为模块添加一个图标，使它更好看？要实现这个目的，我们只需要为模块添加一个包含要用icon的static/description/icon.png文件。  
