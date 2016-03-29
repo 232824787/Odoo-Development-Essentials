@@ -1,8 +1,9 @@
 Chapter 7 ORM Application Logic – Supporting Business Processes
 ************
 
-In this chapter, you will learn to write code to support business logic in your models and you will also learn how it can be activated on events and user actions. Using
-the Odoo programming API, we can write complex logic and wizards allow us to provide a rich user interaction with these programs.  
+In this chapter, you will learn to write code to support business logic in your models and you will also learn how it can be activated on events and user actions. Using the Odoo programming API, we can write complex logic and wizards allow us to provide a rich user interaction with these programs.  
+
+在这一章，你可以学到如何为模型中的业务逻辑编写代码，你可以学习到如何激活事件和用户动作。使用Odoo编程API，我们能够编写复杂的逻辑
 
 ## To-do wizard ToDo的引导程序
 With the wizards, we can ask users to input information to be used in some processes. Suppose our to-do app users regularly need to set deadlines and the responsible persons for a large number of tasks. We could use an assistant to help them with this. It should allow them to pick the tasks to be updated and then choose the deadline date and/or the responsible user to set on them.  
@@ -41,8 +42,12 @@ A wizard displays a form view to the user, usually in a dialog window, with some
 
 This is implemented using the model/view architecture used for regular views, with a difference: the supporting model is based on models.TransientModel instead of models.Model.  
 
+这是一种针对常规视图的使用模型／视图结构的实现，其特点是：支持基于models.TransientModel的模型而不是基于models.Model的模型。  
+
 This type of model is also stored in the database, but the data is expected to be useful only until the wizard is completed or canceled. Server vacuum processes regularly clean up old wizard data from the corresponding database tables.
 The todo_wizard/todo_wizard_model.py  le will de ne the three  elds we need: the lists of tasks to update, the user responsible for them, and the deadline to set on them, as shown here:  
+
+这种类型的模型也被存储于数据库中，但是数据也只是在引导程序完成或者取消时才有用。
 
 ```python
  # -*- coding: utf-8 -*-
@@ -56,14 +61,17 @@ The todo_wizard/todo_wizard_model.py  le will de ne the three  elds we need: the
      _name = 'todo.wizard'
      task_ids = fields.Many2many('todo.task', string='Tasks')
      new_deadline = fields.Date('Deadline to Set')
-     new_user_id = fields.Many2one(
-       'res.users',string='Responsible to Set')
+     new_user_id = fields.Many2one('res.users',string='Responsible to Set')
 ```
 
 
 It's worth noting that if we used a one to many relation, we would have to add the inverse many to one  eld on to-do tasks. We should avoid many to one relations between transient and regular models, and so we used a many to many relation that ful lls the same purpose without the need to modify the to-do task model.  
 
+如果我们使用一对多关系
+
 We are also adding support to message logging. The logger is initialized with the two lines just before the TodoWizard, using the Python logging standard library. To write messages to the log we can use:  
+
+我们也可以添加对消息日志的支持。日志记录器初始化时使用Python日志标准库在TodoWizard之前添加了两行内容。要将消息写入日志我们可以应用一下命令：  
 
 ```
    _logger.debug('A DEBUG message')
