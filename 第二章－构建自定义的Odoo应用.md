@@ -143,7 +143,7 @@ depends属性拥有一个其它所需模块构成的列表。Odoo会在该模块
 
 To be concise, we chose to use very few descriptor keys, but in a real word scenario it is recommended to also use these additional keys, since they are relevant for the Odoo app store:  
 
-为了简洁期间，我们选择使用很少的几个描述符键，但是在真实应用场景中，建议使用下面这些额外的键，因为这些键都与Odoo应用商店有关：  
+为了简洁起见，我们选择使用很少的几个描述符键，但是在真实应用场景中，建议使用下面这些额外的键，因为这些键都与Odoo应用商店有关：  
 
 - `summary` is displayed as a subtitle for the module.
 - `version`, by default, is 1.0. Should follow semantic versioning rules
@@ -647,7 +647,7 @@ The `<field>` elements define fields that are also searched when typing in the s
 `<field>`元素定义了在搜索框中进行输入时可以被搜索的定义字段。`<filter>`元素添加之前定义过的过滤器条件，域语法的选择在用户点击时进行选择。  
 
 ## Adding business logic  添加业务逻辑
-Now we will add some logic to our buttons. Edit the todo_model.py Python file to add to the class the methods called by the buttons. We will use the new API introduced in Odoo 8.0. For backward compatibility, by default Odoo expects the old API, and to create methods using the new API we need to use Python decorators on them. First we need to import the new API, so add it to the import statement at the top of the Python file:  
+Now we will add some logic to our buttons. Edit the `todo_model.py` Python file to add to the class the methods called by the buttons. We will use the new API introduced in Odoo 8.0. For backward compatibility, by default Odoo expects the old API, and to create methods using the new API we need to use Python decorators on them. First we need to import the new API, so add it to the import statement at the top of the Python file:  
 
 现在，我们要给按钮添加一些逻辑。编辑Python文件todo_model.py，然后添加可以被按钮调用的类方法。我们使用在Odoo 8.0中引入的新API。考虑到向后兼容性，默认Odoo使用的是旧版本的API，要创建使用新API的方法，我们需要对定义的方法使用Python装饰器。首先我们需要导入新API，
 
@@ -665,9 +665,9 @@ Inside the TodoTask class add:
 
 ```python
 @api.one
-   def do_toggle_done(self):
-       self.is_done = not self.is_done
-       return True
+def do_toggle_done(self):
+    self.is_done = not self.is_done
+    return True
 ```
 
 As you can see, it simply modifies the `is_done` field, inverting its value. Methods, then, can be called from the client side and must always return something. If they return None, client calls using the XMLRPC protocol won't work. If we have nothing to return, the common practice is to just return the True value.  
@@ -684,10 +684,10 @@ For the **Clear All Done** button we want to go a little further. It should look
 
 ```python
  @api.multi
-   def do_clear_done(self):
-       done_recs = self.search([('is_done', '=', True)])
-       done_recs.write({'active': False})
-       return True
+def do_clear_done(self):
+    done_recs = self.search([('is_done', '=', True)])
+    done_recs.write({'active': False})
+    return True
 ```
 
 
