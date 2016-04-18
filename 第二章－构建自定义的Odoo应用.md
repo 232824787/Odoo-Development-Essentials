@@ -195,9 +195,9 @@ $ cd ~/odoo-dev
 $ odoo/odoo.py -d v8dev --addons-path="custom-addons,odoo/addons" --save
 ```
 
-The `--save` option saves the options you used in a config file. This spares you from repeating them the next time you restart the server: just run ./odoo.py and the last saved options will be used.  
+The `--save` option saves the options you used in a config file. This spares you from repeating them the next time you restart the server: just run `./odoo.py` and the last saved options will be used.  
 
---save选项会把你所使用选项保存到一个配置文件。这个副本会在下一次你启动服务器时被重复使用：运行./odoo.py，之后上次保存的选项将被使用。  
+--save选项会把你所使用选项保存到一个配置文件。这个副本会在下一次你启动服务器时被重复使用：运行`./odoo.py`，之后上次保存的选项将被使用。  
 
 Look closely at the server log. It should have an **INFO ? openerp: addons paths**: (...) line, and it should include our custom-addons directory.  
 

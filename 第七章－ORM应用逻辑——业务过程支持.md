@@ -175,7 +175,11 @@ return True
 
 Our code can handle only one wizard instance at a time. We could have used @api.one, but it is not advised to do so in wizards. In some cases, we want the wizard to return a window action telling the client what to do next. That is not possible with @api.one, since it would return a list of actions instead of a single one.  
 
+我们的代码一次只能处理一个wizard实例。我们可以使用@api.one，但是这里并不推荐在wizard中使用它。在某些情况下，我们想让wizard返回窗口动作来用户接下来要做的事情。使用@api.one是不可能实现这个目的的，因为它返回的是一个动作列表，而不是单个动作。  
+
 Because of this, we prefer to use @api.multi but then we use ensure_one() to check that self represents a single record. It should be noted that self is a record representing the data on the wizard form.  
+
+因此，我们优先使用@api.multi
 
 The method begins by validating if a new deadline date or responsible user was given, and raises an error if not. Next, we demonstrate writing a message to the server log.  
 
@@ -183,7 +187,7 @@ If the validation passes, we write the new values given to the selected tasks. W
 
 Now we will work on the logic behind the two buttons at the top: Count and Get All.  
 
-### Raising exceptions
+### Raising exceptions 抛出异常
 When something is not right, we will want to interrupt the program with an error message. This is done by raising an exception. Odoo provides a few additional exception classes to the ones available in Python. These are examples for the most useful ones:  
 
 ```python
@@ -203,7 +207,7 @@ The Warning message also interrupts execution but can sound less severe that a V
              'There are %d active tasks.' % count)
 ```
 
-### Auto-reloading code changes
+### Auto-reloading code changes 自动重载代码变更
 When you're working on Python code, the server needs to be restarted every time the code is changed to reload it. To make life easier for developers an --auto- reload option is available. It monitors the source code and automatically reloads it if changes are detected. Here is an example of it's usage:  
 
 ```shell
@@ -244,7 +248,7 @@ It is worth noting that the window action could be anything else, like jumping t
 Now the Get All button can do its job and keep the user working on the same wizard:  
 
 ```python
-  @api.multi
+       @api.multi
        def do_populate_tasks(self):
            self.ensure_one()
            Task = self.env['todo.task']
@@ -606,8 +610,10 @@ The slice notation can also be used, as shown here:
 如下所示，切片标记也是可以使用的：  
 
 - `rs[0]` and `rs[-1]` retrieve the first element and the last elements.  
-
 - `rs[1:]` results in a copy of the recordset without the first element. This yields the same records as `rs – rs[0]` but preserves their order.  
+
+- `rs[0]` and `rs[-1]`重新取回第一个和最后一个元素。
+- `rs[1:]`
 
 In general, while manipulating recordsets, you should assume that the record order is not preserved. However, addition and slicing are known to keep record order.  
 
@@ -615,19 +621,19 @@ In general, while manipulating recordsets, you should assume that the record ord
 
 We can use these recordset operations to change the list by removing or adding elements. You can see this in the following example:  
 
-- `self.task_ids |= task1`: This adds task1 element if it's not in the recordset.  
+我们可以使用者记录集
 
+- `self.task_ids |= task1`: This adds task1 element if it's not in the recordset.  
 - `self.task_ids -= task1`: This removes the reference to task1 if it's present
 in the recordset.  
-
 - `self.task_ids = self.task_ids[:-1]`: This unlinks the last record.  
 
 While using the `create()` and `write()` methods with values in a dictionary, a special syntax is used to modify to many  elds. This was explained in Chapter 4, Data Serialization and Module Data, in the section Setting values for relation  elds. Refer to the following sample operations equivalent to the preceding ones using `write()`:  
 
+当你在字典中使用
+
 - `self.write([(4, task1.id, False)])`: This adds task1 to the member.  
-
 - `self.write([(3, task1.id, False)])`: This unlinks task1.  
-
 - `self.write([(3, self.task_ids[-1].id, False)])`: This unlinks the last element.  
 
 ### Other recordset operations 其他记录集操作
@@ -728,12 +734,18 @@ The following methods are mostly used by the web client to render the user inter
 
 - `fields_view_get()`: This is used by the web client to retrieve the structure of the UI view to render. It can be given the ID of the view as an argument or the type of view we want using `view_type='form'.` Look at an example of this: `rset.fields_view_get(view_type='tree')`.  
 
-### Overriding the default methods
+### Overriding the default methods 重写默认方法
 We have learned about the standard methods provided by the API. But what we can do with them doesn't end there! We can also extend them to add custom behavior to our models.  
+
+我们已经学写了API所提供的标准方法。但是使用API能干的事情远不止于此！我们可以扩展这些API来给自己的模型添加自定义的行为。  
 
 The most common case is to extend the create() and write() methods. This can be used to add the logic triggered whenever these actions are executed. By placing our logic in the appropriate section of the custom method, we can have the code run before or after the main operations are executed.  
 
+最常见的例子是扩展create()和write()方法。
+
 Using the TodoTask model as an example, we can make a custom create(), which would look like this:  
+
+我们使用 TodoTask 模型作为例子，我们可以向下面这样编写自定义的create()方法：  
 
 ```python
   @api.model
@@ -747,6 +759,8 @@ Using the TodoTask model as an example, we can make a custom create(), which wou
 ```
 
 A custom write() would follow this structure:  
+
+定义的write()结构如下：  
 
 ```python
    @api.multi
@@ -772,7 +786,9 @@ set the document's currency to the corresponding partner's, which can afterwards
 
 - For validations, we should use constraint functions decorated with `@api. constrains(fld1,fld2,...)`. These are like computed fields but are expected to raise errors when conditions are not met instead of computing values.  
 
-### Model method decorators
+- 为了验证，我们应该使用应用了装饰器`@api. constrains(fld1,fld2,...)`的约束函数。它们类似于计算字段，但是
+
+### Model method decorators 模型方法装饰器
 During our journey, the several methods we encountered used API decorators like @api.one. These are important for the server to know how to handle the method. We have already given some explanation of the decorators used; now let's recap the ones available and when they should be used:  
 
 - @api.one: This feeds one record at a time to the function. The decorator does the recordset iteration for us and self is guaranteed to be a singleton. It's the one to use if our logic only needs to work with each record. It also aggregates the return values of the function on each record in a list, which can have unintended side effects.  
@@ -788,21 +804,23 @@ The decorators that have more speci c purposes that were explained in detail in 
 
 - `@api.depends(fld1,...)`: This is used for computed field functions to identify on what changes the (re)calculation should be triggered.  
 
+- `@api.depends(fld1,...)`: 这是用来计算字段的函数，它标识出
+
 - `@api.constrains(fld1,...)`: This is used for validation functions to identify on what changes the validation check should be triggered. 
+
+- `@api.constrains(fld1,...)`：
 
 - `@api.onchange(fld1,...)`: This is used for on-change functions to identify the fields on the form that will trigger the action.  
 
 In particular the on-change methods can send a warning message to the user interface. For example, this could warn the user that the product quantity just entered is not available on stock, without preventing the user from continuing. This is done by having the method return a dictionary describing the following warning message:  
 
 ```python
-           return {
-               'warning': {
-                   'title': 'Warning!',
-                   'message': 'The warning text'}
+return {
+        'warning': {'title': 'Warning!', 'message': 'The warning text'}
 }
 ```
 
-### Debugging
+### Debugging 调试
 We all know that a good part of a developer's work is to debug code. To do this we often make use of a code editor that can set breakpoints and run our program step by step. Doing so with Odoo is possible, but it has it's challenges.  
 
 If you're using Microsoft Windows as your development workstation, setting up an environment capable of running Odoo code from source is a nontrivial task. Also the fact that Odoo is a server that waits for client calls and only then acts on them makes it quite different to debug compared to client-side programs.  
